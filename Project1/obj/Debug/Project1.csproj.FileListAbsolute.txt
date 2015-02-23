@@ -14,3 +14,6 @@ F:\Project1\Project1\bin\Debug\Project1.exe
 F:\Project1\Project1\bin\Debug\Project1.pdb
 F:\Project1\Project1\bin\Debug\Utils.dll
 F:\Project1\Project1\bin\Debug\Utils.pdb
+C:\Users\Chance\Desktop\Project_1\Project1\bin\Debug\Project1.exe.config
+C:\Users\Chance\Desktop\Project_1\Project1\obj\Debug\Project1.exe
+C:\Users\Chance\Desktop\Project_1\Project1\obj\Debug\Project1.pdb

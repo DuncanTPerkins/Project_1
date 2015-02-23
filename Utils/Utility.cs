@@ -5,7 +5,7 @@
 //	Description:    Holds various static methods to be used throughout the project
 //	Course:			CSCI 2210-001 - Data Structures
 //	Author:			Chance Reichenberg, reichenberg@etsu.edu, Department of Computing, East Tennessee State University
-//	Created:	    Thursday, February 5, 2015
+//	Created:	    Thursday, February 15, 2015
 //	Copyright:		Chance Reichenberg, 2015
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,7 +67,12 @@ namespace Utils
             return String.Format("{0}{1}", "".PadLeft(leftMargin),txt.PadRight(rightMargin - leftMargin));
         }
 
-
+        /// <summary>
+        /// Splits a string into a list of the tokens that made it.
+        /// </summary>
+        /// <param name="original">The string to be tokenized</param>
+        /// <param name="delimiters">The delimters that will be used to split the string</param>
+        /// <returns>A list of tokens found in the given string</returns>
         public static List<String> Tokenize(string original, string delimiters)
         {
             //List for Taking apart the string
