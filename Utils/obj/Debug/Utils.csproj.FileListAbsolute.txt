@@ -1,0 +1,9 @@
+c:\Users\Chance\documents\visual studio 2013\Projects\Project1\Utils\bin\Debug\Utils.dll
+c:\Users\Chance\documents\visual studio 2013\Projects\Project1\Utils\bin\Debug\Utils.pdb
+c:\Users\Chance\documents\visual studio 2013\Projects\Project1\Utils\obj\Debug\Utils.dll
+c:\Users\Chance\documents\visual studio 2013\Projects\Project1\Utils\obj\Debug\Utils.pdb
+F:\Project1\Utils\bin\Debug\Utils.dll
+F:\Project1\Utils\bin\Debug\Utils.pdb
+F:\Project1\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+F:\Project1\Utils\obj\Debug\Utils.dll
+F:\Project1\Utils\obj\Debug\Utils.pdb
