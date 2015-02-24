@@ -33,27 +33,25 @@ namespace Project1
         private string _fileName;
         //delimeters to tokenize against 
         String delims = @"?!,';:*(){}+-\/ ";
-
+        //file dialog for getting txt file 
+        OpenFileDialog _OpenDlg = new OpenFileDialog();
         public Text()
         {
             Original = "";
+            GetFile();
+        }
+
+        public Text(string filename)
+        {
+            Original = "";
+            _fileName = filename;
+
         }
         /// <summary>
         /// Gets the txt file from the user, then breaks it into tokens using the tokenize method 
         /// </summary>
         public void GetTokens()
         {
-           //file dialog for getting txt file 
-           OpenFileDialog _OpenDlg= new OpenFileDialog();
-            //Open in the Resources Folder
-            _OpenDlg.InitialDirectory = Application.StartupPath + @"..\..\Resources";
-
-            //If the user opened a file, copy the directory to _fileName 
-            if (DialogResult.Cancel != _OpenDlg.ShowDialog())
-            {
-                _fileName = _OpenDlg.FileName;
-
-            }
 
             //reading from file 
             try
@@ -78,6 +76,18 @@ namespace Project1
             }
             //Tokenize the string into a list of tokens
             Tokens = Utility.Tokenize(Original, delims);
+        }
+
+        public void GetFile()
+        {
+            //Open in the Resources Folder
+            _OpenDlg.InitialDirectory = Application.StartupPath + @"..\..\Resources";
+            //If the user opened a file, copy the directory to _fileName 
+            if (DialogResult.Cancel != _OpenDlg.ShowDialog())
+            {
+                _fileName = _OpenDlg.FileName;
+
+            }
         }
 
     }

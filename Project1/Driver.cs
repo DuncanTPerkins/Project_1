@@ -22,14 +22,14 @@ namespace Project1
                 [STAThread]
         static void Main(string[] args)
         {
-            //Text test = new Text();
-            //test.GetTokens();
-            //foreach(var  i in test.Tokens)
-            //{
-            //    Console.WriteLine(i);
-            //}
+            Text test = new Text();
+            test.GetTokens();
+            foreach (var i in test.Tokens)
+            {
+                Console.WriteLine(i);
 
 
+            }
 
             
             Console.ReadLine();
