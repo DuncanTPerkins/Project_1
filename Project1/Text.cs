@@ -1,4 +1,16 @@
-﻿using System;
+﻿//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Project:	    Project 1
+//	File Name:		Text.cs
+//	Description:    Converts text files into tokens
+//	Course:			CSCI 2210-001 - Data Structures
+//	Author:			Duncan Perkins, perkinsdt@goldmail.etsu.edu, Department of Computing, East Tennessee State University
+//	Created:	    Thursday, February 15, 2015
+//	Copyright:		Duncan Perkins, 2015
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,40 +25,58 @@ namespace Project1
     {
         //Original string to be tokenized
         public string Original { get; set; }
+        //StreamReader for reading from file 
         private StreamReader reader = null;
         //List of Tokenized tokens 
         public List<String> Tokens { get; set; }
+        //filename of txt file to read from
         private string _fileName;
+        //delimeters to tokenize against 
         String delims = @"?!,';:*(){}+-\/ ";
 
         public Text()
         {
             Original = "";
         }
+        /// <summary>
+        /// Gets the txt file from the user, then breaks it into tokens using the tokenize method 
+        /// </summary>
         public void GetTokens()
         {
+           //file dialog for getting txt file 
            OpenFileDialog _OpenDlg= new OpenFileDialog();
+            //Open in the Resources Folder
             _OpenDlg.InitialDirectory = Application.StartupPath + @"..\..\Resources";
+
+            //If the user opened a file, copy the directory to _fileName 
             if (DialogResult.Cancel != _OpenDlg.ShowDialog())
             {
                 _fileName = _OpenDlg.FileName;
 
             }
+
+            //reading from file 
             try
             {
+                //initialize the StreamReader with the directory from the user 
                 using (reader = new StreamReader(_fileName))
                 {
+                    //variable for single line of input from file 
                     string line;
+                    //while we aren't at the end of the file, copy the next line from the file to line
                     while ((line = reader.ReadLine()) != null)
                     {
+                        //append the current line to the "Original" String 
                         Original += line;
                     }
                 }
             }
+            //in case anything goes wrong 
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+            //Tokenize the string into a list of tokens
             Tokens = Utility.Tokenize(Original, delims);
         }
 
