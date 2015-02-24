@@ -7,3 +7,8 @@ F:\Project1\Utils\bin\Debug\Utils.pdb
 F:\Project1\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
 F:\Project1\Utils\obj\Debug\Utils.dll
 F:\Project1\Utils\obj\Debug\Utils.pdb
+C:\Users\Duncan\Documents\GitHub\Project1\Utils\bin\Debug\Utils.dll
+C:\Users\Duncan\Documents\GitHub\Project1\Utils\bin\Debug\Utils.pdb
+C:\Users\Duncan\Documents\GitHub\Project1\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+C:\Users\Duncan\Documents\GitHub\Project1\Utils\obj\Debug\Utils.dll
+C:\Users\Duncan\Documents\GitHub\Project1\Utils\obj\Debug\Utils.pdb
