@@ -6,7 +6,7 @@
 //	Course:			CSCI 2210-001 - Data Structures
 //	Authors:		Chance Reichenberg, Duncan Perkins, perkinsdt@goldmail.etsu.edu, reichenberg@etsu.edu, Department of Computing, East Tennessee State University
 //	Created:	    Thursday, February 5, 2015
-//	Copyright:		Chance Reichenberg, 2015
+//	Copyright:		Chance Reichenberg, Duncan Perkins 2015
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 using System;
