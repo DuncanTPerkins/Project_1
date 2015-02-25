@@ -25,6 +25,8 @@ namespace Project1
         //Private variable to hold the lowercase distinct word
         private string _word;
 
+        #region Properties
+
         //Property to access private variable _word
         public string Word
         {
@@ -41,13 +43,16 @@ namespace Project1
         //Property that holds the number of times this word occurs in the file
         public int Count { get; set; }
 
+        #endregion
+
+        #region Constructors
         /// <summary>
         /// Default Constructor for DistinctWord Class, sets the property Word to an empty string
         /// </summary>
         public DistinctWord()
         {
             Word = "";
-        }
+        }//End Method
 
         /// <summary>
         /// Parameterized constructor for Distinct Word class
@@ -57,7 +62,9 @@ namespace Project1
         {
             _word = word.ToLower();
             Count++;
-        }
+        }//End Method
+
+        #endregion
 
         #region IEquatable<DistinctWord> Members
 
@@ -79,7 +86,7 @@ namespace Project1
             }
             else
                 return Equals(obj as DistinctWord);
-        }
+        }//End Method
 
         /// <summary>
         /// Implemented IEquatable Equals Method
@@ -89,7 +96,7 @@ namespace Project1
         bool IEquatable<DistinctWord>.Equals(DistinctWord word)
         {
             return _word == word.Word;
-        }
+        }//End Method
 
         /// <summary>
         /// Overrides bool operator == to use IEquatable method
@@ -100,7 +107,7 @@ namespace Project1
         public static bool operator == (DistinctWord word1, DistinctWord word2)
         {
             return word1.Equals(word2);
-        }
+        }//End Method
 
         /// <summary>
         /// Overrides bool operator != to use IEquatable method
@@ -111,7 +118,7 @@ namespace Project1
         public static bool operator != (DistinctWord word1, DistinctWord word2)
         {
             return !(word1.Equals(word2));
-        }
+        }//End Method
         #endregion
 
         /// <summary>
@@ -121,7 +128,7 @@ namespace Project1
         public override string ToString()
         {
             return String.Format("{0,-24}{1,-10}", Word, Count.ToString());
-        }
+        }//End Method
     
 
         #region IComparable<DistinctWord> Members
@@ -134,8 +141,8 @@ namespace Project1
         public int CompareTo(DistinctWord wordToCompare)
         {
             return this._word.CompareTo(wordToCompare._word);
-        }
+        }//End Method
 
         #endregion
-    }
+    }//End Class DistinctWord
 }

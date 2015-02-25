@@ -25,14 +25,13 @@ namespace Project1
     class Words
     {
         private Regex wordPattern = new Regex("[a-z]");
-        /// <summary>
-        /// Public property that holds the distinct words
-        /// </summary>
+
+        #region Properties
+
+        // Public property that holds the distinct words
         public List<DistinctWord> DistinctWords { get; private set; }
 
-        /// <summary>
-        /// Public read-only property that holds the number of distinct words
-        /// </summary>
+        // Public read-only property that holds the number of distinct words
         public int Count
         {
             get
@@ -41,13 +40,16 @@ namespace Project1
             }
         }
 
+        #endregion
+
+        #region Constructors
         /// <summary>
         /// Default Constructor for the Words class
         /// </summary>
         public Words()
         {
             DistinctWords = new List<DistinctWord>();
-        }
+        }//End Method
 
         /// <summary>
         /// Parameterized constructor that takes a text object and puts the tokens into the list of Distinct words.
@@ -64,10 +66,12 @@ namespace Project1
                     DistinctWord matchedWord = new DistinctWord(item);
 
                     AddWordOrCount(matchedWord);
-                }
-            }
+                }//End If
+            }//End Foreach
             DistinctWords.Sort();
-        }
+        }//End Method
+
+        #endregion
 
         /// <summary>
         /// Method used to display Distinct words 
@@ -83,8 +87,8 @@ namespace Project1
             {
                 count++;
                 Console.WriteLine(Utility.FormatText(String.Format("{0,3}.  {1}",count, item), 2, 80));
-            }
-        }
+            }//End Foreach
+        }//End Method
 
         /// <summary>
         /// Tests to see whether the word should be added to an existing word's count or added to the list
@@ -101,8 +105,8 @@ namespace Project1
                 foreach (var word in DistinctWords)
                 {
                     word.Count += (word.Word == tempWord.Word) ? 1 : 0;
-                }
-            }
+                }//End Foreach
+            }//End If
         }
-    }
+    }//End Class Words
 }
