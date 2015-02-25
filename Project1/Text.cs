@@ -35,12 +35,20 @@ namespace Project1
         String delims = @"?!,';:*(){}+-\/ ";
         //file dialog for getting txt file 
         OpenFileDialog _OpenDlg = new OpenFileDialog();
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Text()
         {
             Original = "";
             GetFile();
         }
 
+        /// <summary>
+        /// constructor for passing in a file path to be tokenized
+        /// </summary>
+        /// <param name="filename">path to file the user wants tokenized</param>
         public Text(string filename)
         {
             Original = "";
@@ -78,6 +86,9 @@ namespace Project1
             Tokens = Utility.Tokenize(Original, delims);
         }
 
+        /// <summary>
+        /// Method for opening file dialog and getting file path from user
+        /// </summary>
         public void GetFile()
         {
             //Open in the Resources Folder
