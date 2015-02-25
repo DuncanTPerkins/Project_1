@@ -32,7 +32,7 @@ namespace Project1
         //filename of txt file to read from
         private string _fileName;
         //delimeters to tokenize against 
-        String delims = @"?!,';:*(){}+-\/ ";
+        String delims = @"?!,';:*(){}+-\/\. ";
         //file dialog for getting txt file 
         OpenFileDialog _OpenDlg = new OpenFileDialog();
 
