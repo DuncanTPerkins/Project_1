@@ -30,7 +30,7 @@ namespace Utils
         public static void WelcomeMessage(string caption = "Computer Science 2210", string author = "Chance Reichenberg")
         {
             Console.WriteLine("{0}: {1}", caption, author);
-        }
+        }//End Method
 
         /// <summary>
         /// A Goodbye message that can be displayed
@@ -39,7 +39,7 @@ namespace Utils
         public static void GoodbyeMessage(string msg = "Thank you for using this program.")
         {
             Console.WriteLine(msg);
-        }
+        }//End Method
 
         /// <summary>
         /// Skips a number os lines in the console window
@@ -52,7 +52,7 @@ namespace Utils
                 Console.WriteLine("\n");
 
             }
-        }
+        }//End Method
 
         /// <summary>
         /// Formats an entered string by placing it between entered margins
@@ -65,7 +65,7 @@ namespace Utils
         {
 
             return String.Format("{0}{1}", "".PadLeft(leftMargin),txt.PadRight(rightMargin - leftMargin));
-        }
+        }//End Method
 
         /// <summary>
         /// Splits a string into a list of the tokens that made it.
@@ -73,54 +73,95 @@ namespace Utils
         /// <param name="original">The string to be tokenized</param>
         /// <param name="delimiters">The delimters that will be used to split the string</param>
         /// <returns>A list of tokens found in the given string</returns>
-        public static List<String> Tokenize(string original, string delimiters)
+        public static List<string> Tokenize(string line, string delims)
         {
-            //List for Taking apart the string
-            List<String> list = new List<String>();
+            List<string> tokenizedLine = new List<string>();
 
-            //String to perform the cutting on
-            String CompareString = original;
 
-            //infinite loop for String cutting
-            while (true)
+            char[] delimArray = delims.ToCharArray();
+            int endingIndex = 0;
+            int startingIndex = 0;
+            string subStringToAdd;
+
+            while (endingIndex != -1)
             {
+                endingIndex = line.IndexOfAny(delimArray, startingIndex);
 
-                //get the index of the earliest delimeter 
-                int index = CompareString.IndexOfAny(delimiters.ToCharArray());
-
-                //if there aren't any, break out of the loop
-                if (index < 0) { break; }
-
-                //if a delimeter is found, 
-                else
+                if (endingIndex != -1)
                 {
-                    CompareString.Trim();
-                    //add the characters
-                    list.Add(CompareString.Substring(0, index));
+                    int stringLength = endingIndex - startingIndex;
 
-                    //add the delimiter
-                    if (string.IsNullOrWhiteSpace(CompareString.Substring(index, 1)))
+                    tokenizedLine.Add(line.Substring(startingIndex, stringLength));
+                    subStringToAdd = line.Substring(endingIndex, 1);
+                    if (!String.IsNullOrWhiteSpace(subStringToAdd) && !String.IsNullOrEmpty(subStringToAdd))
                     {
-                        //don't add the delimiter if it's a space
-                    }
-                    else
-                    {
-                        list.Add(CompareString.Substring(index, 1));
-                    }
-                    //resize the compared string
-                    CompareString = CompareString.Substring(index + 1);
-                }
-            }//end loop6
+                        tokenizedLine.Add(subStringToAdd);
+                    }//End If
 
+                    startingIndex = endingIndex + 1;
+                }//End if
 
-            for (var i = 0; i < list.Count; i++)
+            }//End While
+
+            for (int i = 0; i < tokenizedLine.Count; i++ )
             {
-                if(string.IsNullOrWhiteSpace(list[i])) {list.Remove(list[i]);}
-
+                if (String.IsNullOrWhiteSpace(tokenizedLine[i]))
+                {
+                    tokenizedLine.Remove(tokenizedLine[i]);
+                }
             }
-            //return list of tokens
-            return list;
 
-        }
+            return tokenizedLine;
+        }//End Tokenize
+
+        //public static List<String> Tokenize(string original, string delimiters)
+        //{
+        //    //List for Taking apart the string
+        //    List<String> list = new List<String>();
+
+        //    //String to perform the cutting on
+        //    String CompareString = original;
+
+        //    //infinite loop for String cutting
+        //    while (true)
+        //    {
+
+        //        //get the index of the earliest delimeter 
+        //        int index = CompareString.IndexOfAny(delimiters.ToCharArray());
+
+        //        //if there aren't any, break out of the loop
+        //        if (index < 0) { break; }
+
+        //        //if a delimeter is found, 
+        //        else
+        //        {
+        //            CompareString.Trim();
+        //            //add the characters
+        //            list.Add(CompareString.Substring(0, index));
+
+        //            //add the delimiter
+        //            if (string.IsNullOrWhiteSpace(CompareString.Substring(index, 1)))
+        //            {
+        //                //don't add the delimiter if it's a space
+        //            }
+        //            else
+        //            {
+        //                list.Add(CompareString.Substring(index, 1));
+        //            }
+        //            //resize the compared string
+        //            CompareString = CompareString.Substring(index + 1);
+        //        }
+        //    }//end loop6
+
+
+        //    for (var i = 0; i < list.Count; i++)
+        //    {
+        //        if(string.IsNullOrWhiteSpace(list[i])) {list.Remove(list[i]);}
+
+        //    }
+        //    //return list of tokens
+        //    return list;
+
+        //}
     }
 }
