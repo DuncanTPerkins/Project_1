@@ -24,6 +24,8 @@ namespace Project1
         {
             Text test = new Text();
             test.GetTokens();
+            Sentence s = new Sentence(test, 0);
+            s.ToString();
             foreach (var i in test.Tokens)
             {
                 Console.WriteLine(i);
