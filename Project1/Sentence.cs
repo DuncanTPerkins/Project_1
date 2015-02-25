@@ -39,8 +39,8 @@ namespace Project1
         public Sentence(Text text, int StartingToken)
         {
             Char[] EndingCondition = new Char[] { '?', '!', '.' };
-            List<String> StartingText = text.Tokens;
             text.GetTokens();
+            List<String> StartingText = text.Tokens;
             int ListSize = StartingText.Count;
             int NewListSize = (ListSize - StartingToken);
             StartingText = StartingText.GetRange(StartingToken, NewListSize);
