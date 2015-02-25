@@ -116,6 +116,19 @@ namespace Project1
         } //end constructor
 
         /// <summary>
+        /// returns total length of all words in this sentence. 
+        /// </summary>
+        /// <returns>total length of all words in this sentence</returns>
+        public int GetTotalLength() {
+            int count = 0;
+            //for each token in the sentence, add the length of the token to the variable count, then return it 
+            foreach (string s in SentenceList) {
+                count += s.Length;
+            }
+            return count;
+        }
+
+        /// <summary>
         /// Calculate Word Count, Average Word Length, and First and Last Tokens of the Sentence
         /// </summary>
         public void GetMetrics()

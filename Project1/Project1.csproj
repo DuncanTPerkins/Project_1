@@ -46,6 +46,7 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sentence.cs" />
+    <Compile Include="SentenceList.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="Words.cs" />
   </ItemGroup>

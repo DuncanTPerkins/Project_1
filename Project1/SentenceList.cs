@@ -21,18 +21,38 @@ namespace Project1
     {
         public List<Sentence> Sentences { get { return _sentences; } set { _sentences = value; } }
         private List<Sentence> _sentences;
-        public int SentencesCount { get { return _sentencescount; } set { _sentencescount = value; } }
-        private int _sentencescount;
-        public double AverageLength { get { return _averagelength; } set { _averagelength = value; } }
-        private double _averagelength;
+        public int SentencesCount { get { return Sentences.Count; } }
+        public double AverageLength {
+            get {
+                int count = 0;
+                foreach (Sentence s in Sentences) {
+                    count += s.GetTotalLength();
+                }
+                return count;
+            }
+            
+        }
 
         public SentenceList()
         {
             Sentences = null;
-            SentencesCount = 0;
-            AverageLength = 0;
         }
-    
+
+        public SentenceList(Text text) {
+            Sentence sentence = new Sentence(text, 0);
+            Sentences.Add(sentence);
+        }
+
+        public void AddSentence(Sentence s) {
+            Sentences.Add(s);  
+        }
+
+        public void CalcluateAverage() {
+            int count = 0;
+            foreach (Sentence s in Sentences) {
+                count += s.GetTotalLength();
+            }
+        }
 
     
     
