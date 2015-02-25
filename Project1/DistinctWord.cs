@@ -38,7 +38,7 @@ namespace Project1
             }
         }
 
-        //Property that holds thee number of times this word occurs in the file
+        //Property that holds the number of times this word occurs in the file
         public int Count { get; set; }
 
         /// <summary>
@@ -56,6 +56,7 @@ namespace Project1
         public DistinctWord(string word)
         {
             _word = word.ToLower();
+            Count++;
         }
 
         #region IEquatable<DistinctWord> Members
@@ -111,15 +112,17 @@ namespace Project1
         {
             return !(word1.Equals(word2));
         }
+        #endregion
+
         /// <summary>
         /// Overrides .ToString Method to display object contents
         /// </summary>
         /// <returns>Formatted String of object contents</returns>
         public override string ToString()
         {
-            return String.Format("{0}\t{1}", Word, Count);
+            return String.Format("{0,-24}{1,-10}", Word, Count.ToString());
         }
-        #endregion
+    
 
         #region IComparable<DistinctWord> Members
 

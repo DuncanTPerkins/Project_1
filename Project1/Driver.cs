@@ -28,7 +28,8 @@ namespace Project1
 
             Console.WriteLine(Utility.FormatText(s.ToString()));
 
-
+            Words testWords = new Words(test);
+            testWords.Display();
             
             Console.ReadLine();
         }
