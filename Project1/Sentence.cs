@@ -5,7 +5,7 @@
 //	Description:    Converts text files into tokens
 //	Course:			CSCI 2210-001 - Data Structures
 //	Author:			Duncan Perkins, perkinsdt@goldmail.etsu.edu, Department of Computing, East Tennessee State University
-//	Created:	    Thursday, February 15, 2015
+//	Created:	    Tuesday, February 23rd, 2015
 //	Copyright:		Duncan Perkins, 2015
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,6 +142,7 @@ namespace Project1
             {
                 average += s.Length;
             } //end foreach
+
             //...and then divide by total number of tokens 
             average /= SentenceList.Count;
 

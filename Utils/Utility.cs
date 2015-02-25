@@ -4,7 +4,7 @@
 //	File Name:		Utility.cs
 //	Description:    Holds various static methods to be used throughout the project
 //	Course:			CSCI 2210-001 - Data Structures
-//	Author:			Chance Reichenberg, reichenberg@etsu.edu, Department of Computing, East Tennessee State University
+//	Author:			Chance Reichenberg, reichenberg@etsu.edu, Duncan Perkins, perkinsdt@goldmail.etsu.edu, Department of Computing, East Tennessee State University
 //	Created:	    Thursday, February 15, 2015
 //	Copyright:		Chance Reichenberg, 2015
 //
