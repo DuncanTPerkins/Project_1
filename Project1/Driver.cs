@@ -27,7 +27,8 @@ namespace Project1
             Sentence s = new Sentence(test, 0);
 
             Console.WriteLine(Utility.FormatText(s.ToString()));
-
+            SentenceList sl = new SentenceList(test);
+            sl.Display();
             Words testWords = new Words(test);
             testWords.Display();
             

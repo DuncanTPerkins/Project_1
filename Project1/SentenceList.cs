@@ -47,14 +47,13 @@ namespace Project1
             Sentences.Add(s);  
         }
 
-        public void CalcluateAverage() {
-            int count = 0;
-            foreach (Sentence s in Sentences) {
-                count += s.GetTotalLength();
+        public void Display() {
+            Console.WriteLine("Sentences Found in the Text:\n");
+            for (int i = 0; i < Sentences.Count; i++) {
+                Console.WriteLine("Sentence " + (i + 1) + "\n");
+                Console.WriteLine(Sentences[i].ToString());
             }
-        }
-
-    
+        }  
     
     }
     
