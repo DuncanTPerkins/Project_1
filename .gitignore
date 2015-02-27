@@ -5,3 +5,4 @@ Project1/bin/Debug/Project1.pdb
 *.cache
 *.exe
 Project1/obj/Debug/Project1.pdb
+*.suo
