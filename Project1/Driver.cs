@@ -31,6 +31,9 @@ namespace Project1
             sl.Display();
             Words testWords = new Words(test);
             testWords.Display();
+
+            Paragraph getSentences = new Paragraph(test);
+            getSentences.Display();
             
             Console.ReadLine();
         }

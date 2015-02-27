@@ -17,3 +17,8 @@ C:\Users\Chance\Desktop\Project_1\Utils\bin\Debug\Utils.pdb
 C:\Users\Chance\Desktop\Project_1\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
 C:\Users\Chance\Desktop\Project_1\Utils\obj\Debug\Utils.dll
 C:\Users\Chance\Desktop\Project_1\Utils\obj\Debug\Utils.pdb
+C:\Users\Chris\Documents\Project_1\Utils\bin\Debug\Utils.dll
+C:\Users\Chris\Documents\Project_1\Utils\bin\Debug\Utils.pdb
+C:\Users\Chris\Documents\Project_1\Utils\obj\Debug\Utils.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Documents\Project_1\Utils\obj\Debug\Utils.dll
+C:\Users\Chris\Documents\Project_1\Utils\obj\Debug\Utils.pdb

@@ -70,7 +70,10 @@ namespace Project1
         /// <param name="text">The object that holds the tokenized input</param>
         public Paragraph(Text text)
         {
+            //Counts the number of sentences in the paragraph
             _sentences = GetSentences.Count;
+
+            //Sets the first token
             FirstToken = GetSentences[0];
         } //end of the parameterized constructor
 
@@ -80,9 +83,13 @@ namespace Project1
         /// <returns></returns>
         public override String ToString()
         {
-            string str = "";
-
+            string str = "Number of Sentences in Paragraph" + _sentences;
             return str;
         } //end of overriding ToString method
+
+        public void Display()
+        {
+            Console.WriteLine(ToString());
+        }
     } //end of class
 } //end of namespace
