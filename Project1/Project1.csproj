@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DistinctWord.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="Paragraph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sentence.cs" />
     <Compile Include="SentenceList.cs" />
