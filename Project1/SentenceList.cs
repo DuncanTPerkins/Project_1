@@ -53,8 +53,9 @@ namespace Project1
                 Console.WriteLine("Sentence " + (i + 1) + "\n");
                 Console.WriteLine(Sentences[i].ToString());
             }
-        }  
-    
+        }
+        
+
     }
     
 }
