@@ -53,7 +53,7 @@ namespace Project1
         public Paragraph(Text text)
         {
             SentenceList = text.Tokens;
-            foreach(string s in SentenceList)
+            foreach (string s in SentenceList)
             {
                 _sentences++;
             }
