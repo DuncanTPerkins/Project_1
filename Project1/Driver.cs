@@ -19,7 +19,7 @@ namespace Project1
 {
     class Driver
     {
-                [STAThread]
+        [STAThread]
         static void Main(string[] args)
         {
             Text test = new Text();
@@ -27,13 +27,13 @@ namespace Project1
             Sentence s = new Sentence(test, 0);
 
             Console.WriteLine(Utility.FormatText(s.ToString()));
-            SentenceList sl = new SentenceList(test);
-            sl.Display();
+            //SentenceList sl = new SentenceList(test);
+            //sl.Display();
             Words testWords = new Words(test);
             testWords.Display();
 
             Paragraph getSentences = new Paragraph(test);
-            getSentences.Display();
+            getSentences.ToString();
             
             Console.ReadLine();
         }

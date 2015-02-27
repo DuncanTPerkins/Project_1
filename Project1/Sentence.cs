@@ -78,7 +78,7 @@ namespace Project1
         {
                 //retrieve tokens from text class 
                 SentenceList = text.Tokens;
-                //get length of current list 
+                //get length of current slist 
                 int ListSize = (SentenceList.Count);
                 //subtract the starting position of the sentence that was passed to us 
                 int NewListSize = ((ListSize) - (StartingToken));
@@ -193,5 +193,10 @@ namespace Project1
             //trim leading and trailing white spaces when returning Sentence
             return str;
         } //end method 
+        public List<string> ReturnSentence()
+        {
+
+            return SentenceList;
+        }
     } //end class
 } //end namespace

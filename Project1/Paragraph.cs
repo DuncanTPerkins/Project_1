@@ -29,8 +29,29 @@ namespace Project1
         public int Sentences { get { return _sentences; } set { _sentences = value; } }
 
         //Variables for the humber of words
-        private int _words;
-        public int Words { get { return _words; } set { _words = value; } }
+        public int Words
+        {
+            get
+            {
+                int gettercounter = 0;
+                foreach (string s in GetParagraph)
+                {
+                    string delims = "?!,';:*(){}+-. ";
+                    char[] charArray = delims.ToCharArray();
+                    int IsntWord = s.IndexOfAny(charArray);
+                    if (IsntWord == 1)
+                    {
+                        gettercounter++;
+                        break;
+                    }
+                    else
+                    {
+                        gettercounter++;
+                    }
+                }
+                return gettercounter;
+            }
+        }
 
         //Variables for the length of words in the sentence
         private double _length;
@@ -45,12 +66,16 @@ namespace Project1
         public string LastToken { get { return _lastToken; } set { _lastToken = value; } }
         
         //Variables for the list that will store the sentences
-        private List<string> _getsentences;
-        public List<string> GetSentences { get { return _getsentences; } set { _getsentences = value; } }
+        private List<string> _getparagraph;
+        public List<string> GetParagraph { get { return _getparagraph; } set { _getparagraph = value; } }
 
         //Regex pattern used to determine the end of a paragraph
-        private static Regex EndParagraph = new Regex(@"\n\n");
+        private static Regex EndParagraph = new Regex("\n{2}|\r{2}");
 
+        private static Regex EndSentence = new Regex(@"[\?\.!]");
+
+        private static Match match;
+        private static int EndingIndex;
         /// <summary>
         /// Default constructor for the paragraph class
         /// </summary>
@@ -58,10 +83,10 @@ namespace Project1
         {
             //This initializes everything in the class
             Sentences = 0;
-            Words = 0;
             Length = 0;
             FirstToken = "";
             LastToken = "";
+            GetParagraph = null;
         } //end of the default constructor
 
         /// <summary>
@@ -70,12 +95,43 @@ namespace Project1
         /// <param name="text">The object that holds the tokenized input</param>
         public Paragraph(Text text)
         {
-            //Counts the number of sentences in the paragraph
-            _sentences = GetSentences.Count;
+            GetParagraph = text.Tokens;
 
             //Sets the first token
-            FirstToken = GetSentences[0];
+            FirstToken = GetParagraph[0];
+
+            int counter = 0;
+            foreach (string s in GetParagraph)
+            {
+                match = EndParagraph.Match(s);
+                if (match.Success)
+                {
+                    //end of paragraph
+                    EndingIndex = counter;
+                    break;
+                }               
+                counter++;
+            }
+            GetParagraph = GetParagraph.GetRange(0, EndingIndex);
+            //Counts the number of sentences in the paragraph
+            _sentences = GetParagraph.Count;
         } //end of the parameterized constructor
+
+        public int GetStats()
+        {
+            int counter = 0;
+            foreach(string s in GetParagraph)
+            {
+                //if it's the end of a sentence
+                match = EndSentence.Match(s);
+                if (match.Success) {
+                    counter++;
+                    Console.WriteLine("kek");
+                } 
+            }
+            Length = GetParagraph.Count / counter;
+            return counter;
+        }
 
         /// <summary>
         /// The overriding method that returns the formatted result
@@ -83,13 +139,9 @@ namespace Project1
         /// <returns></returns>
         public override String ToString()
         {
-            string str = "Number of Sentences in Paragraph" + _sentences;
+            string str = "Total Sentences:" + GetStats() + "     " + "Average Words Per Sentence: " + Length;
             return str;
         } //end of overriding ToString method
 
-        public void Display()
-        {
-            Console.WriteLine(ToString());
-        }
     } //end of class
 } //end of namespace
