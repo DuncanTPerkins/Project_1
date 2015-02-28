@@ -24,7 +24,7 @@ namespace Project1
     /// </summary>
     class Words
     {
-        private Regex wordPattern = new Regex("[a-z]");
+        private Regex wordPattern = new Regex("^([a-z]|[A-Z])");
 
         #region Properties
 

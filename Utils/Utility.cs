@@ -83,6 +83,7 @@ namespace Utils
             int startingIndex = 0;
             string subStringToAdd;
 
+            
             while (endingIndex != -1)
             {
                 endingIndex = line.IndexOfAny(delimArray, startingIndex);
@@ -105,9 +106,14 @@ namespace Utils
 
             for (int i = 0; i < tokenizedLine.Count; i++ )
             {
-                if (String.IsNullOrWhiteSpace(tokenizedLine[i]))
+                if (String.IsNullOrWhiteSpace(tokenizedLine[i]) || tokenizedLine[i] == "t")
                 {
                     tokenizedLine.Remove(tokenizedLine[i]);
+                }
+                else if(tokenizedLine[i] == "n" || tokenizedLine[i] == "r")
+                {
+                    tokenizedLine[i] = @"\" + tokenizedLine[i];
+                    tokenizedLine.Remove(tokenizedLine[i - 1]);
                 }
             }
 

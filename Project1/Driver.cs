@@ -31,9 +31,12 @@ namespace Project1
             //sl.Display();
             Words testWords = new Words(test);
             testWords.Display();
-
-            Paragraph getSentences = new Paragraph(test);
-            getSentences.ToString();
+            foreach(var i in test.Tokens)
+            {
+                Console.WriteLine(i);
+            }
+            //Paragraph getSentences = new Paragraph(test);
+            //getSentences.ToString();
             
             Console.ReadLine();
         }
