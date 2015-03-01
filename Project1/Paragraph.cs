@@ -117,8 +117,8 @@ namespace Project1
                     
                     EndingIndex = i + 1;
                     break;
-                }
-            }
+                } // end if
+            } //end for
 
             //Cut out the tokens that are not in the paragraph
             GetParagraph = GetParagraph.GetRange(0, EndingIndex);
@@ -126,9 +126,9 @@ namespace Project1
         } //end of the parameterized constructor
 
         /// <summary>
-        /// 
+        /// Gets the number of sentences and assigns it to the sentences variable, also evaluates the average words per sentence.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Number of Sentences</returns>
         public int GetStats()
         {
             int counter = 0;
@@ -140,8 +140,8 @@ namespace Project1
                 match = EndSentence.Match(s);
                 if (match.Success) {
                     counter++;
-                } 
-            }
+                } //end if  
+            } //end foreach
 
             //Assigns the value of counter (number of sentences) to Sentences
             Sentences = counter;
@@ -150,7 +150,7 @@ namespace Project1
             AverageLength = (Words / Sentences);
 
             return Sentences;
-        }
+        } //end method 
 
         /// <summary>
         /// The overriding method that returns the formatted result
@@ -164,14 +164,19 @@ namespace Project1
             //Loops through the tokens adding spaces after words only if it is not the first token
             foreach (string s in GetParagraph)
             {
+                //initalize match with Word Regex and current string token
                 match = IsWord.Match(s);
 
+                //if the match is a success and we aren't on the first token
                 if (match.Success && s != FirstToken)
                 {
+                    //append a space to str (so the output looks nice)
                     str += " ";
-                }
+                } //end if 
+
+                //append the current token to the string 
                 str += s;
-            }
+            }//end method 
 
             //Sets the variable to display the stats needed
             str += "\n\n" + "Total Sentences: " + GetStats() + "     " + "Average Words Per Sentence: " + AverageLength;
