@@ -1,8 +1,8 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Project:	    Project 1
-//	File Name:		Paragraph.cs
-//	Description:    Calculates the number of sentences and words in a paragraph
+//	File Name:		ParagraphList.cs
+//	Description:    Creates a list that holds the paragraph objects
 //	Course:			CSCI 2210-001 - Data Structures
 //	Author:			Chris Harris, harriscr1@goldmail.etsu.edu, Department of Computing, East Tennessee State University
 //	Created:	    Wednesday, February 24th, 2015
