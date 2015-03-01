@@ -114,7 +114,6 @@ namespace Project1
                 //Checks for the end of the paragraph using two new line characters, two carriage return characters or the end of the list
                 if((GetParagraph[i] == "\\n" && GetParagraph[i+1] == "\\n") || (GetParagraph[i] == "\\r" && GetParagraph[i+1] == "\\r") || i + 1 == GetParagraph.Count)
                 {
-                    
                     EndingIndex = i + 1;
                     break;
                 } // end if
