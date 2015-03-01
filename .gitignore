@@ -6,3 +6,9 @@ Project1/bin/Debug/Project1.pdb
 *.exe
 Project1/obj/Debug/Project1.pdb
 *.suo
+*.suo
+*.exe
+*.pdb
+*.cache
+*.exe
+*.pdb

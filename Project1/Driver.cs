@@ -39,10 +39,6 @@ namespace Project1
             //Paragraph getSentences = new Paragraph(test);
             //Console.WriteLine(getSentences.ToString());
             ParagraphList p = new ParagraphList(test);
-            p.AddTextObject(test);
-            p.AddTextObject(test);
-            p.AddTextObject(test);
-
             Console.WriteLine(p.Display());
             Console.ReadLine();
         }

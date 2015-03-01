@@ -39,7 +39,7 @@ namespace Project1
                 //Loops through the tokens counting any token that is not a delimiter
                 foreach (string s in GetParagraph)
                 {
-                    match = Letter.Match(s);
+                    match = IsLetter.Match(s);
                     if (match.Success)
                     {
                         gettercounter++;
@@ -72,7 +72,7 @@ namespace Project1
         private static Regex EndSentence = new Regex("[?.!]");
 
         //Regex pattern for checking if it is a letter
-        private static Regex Letter = new Regex(@"^[a-zA-Z0-9_]+$");
+        private static Regex IsLetter = new Regex(@"^[a-zA-Z0-9_]+$");
 
         //Regex pattern for checking if it is a word
         private static Regex IsWord = new Regex("\\w+");
