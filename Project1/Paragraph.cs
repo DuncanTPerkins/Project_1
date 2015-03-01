@@ -94,6 +94,7 @@ namespace Project1
             FirstToken = "";
             LastToken = "";
             GetParagraph = null;
+
         } //end of the default constructor
 
         /// <summary>
