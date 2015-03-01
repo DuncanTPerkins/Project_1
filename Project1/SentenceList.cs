@@ -39,6 +39,7 @@ namespace Project1
         }
 
         public SentenceList(Text text) {
+            Sentences = new List<Sentence>();
             Sentence sentence = new Sentence(text, 0);
             Sentences.Add(sentence);
         }
