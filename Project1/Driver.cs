@@ -22,25 +22,37 @@ namespace Project1
         [STAThread]
         static void Main(string[] args)
         {
-            Text test = new Text();
-            test.GetTokens();
-            //Sentence s = new Sentence(test, 0);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Title = "Menu Demonstration Application";
 
-            //Console.WriteLine(Utility.FormatText(s.ToString()));
-            SentenceList sl = new SentenceList(test);
-            sl.Display();
-            Words testWords = new Words(test);
-            testWords.Display();
-            foreach(var i in test.Tokens)
+            Menu menu = new Menu("Menu Demo");
+            menu = menu + "Open a file" + "Edit the file" + "Close the file" + "Quit";
+
+            Choices choice = (Choices)menu.GetChoice();
+            while (choice != Choices.QUIT)
             {
-                Console.WriteLine(i);
-            }
+                switch (choice)
+                {
+                    case Choices.OPEN:
+                        Console.WriteLine("You selected Open");
+                        Console.ReadKey();
+                        break;
 
-            //Paragraph getSentences = new Paragraph(test);
-            //Console.WriteLine(getSentences.ToString());
-            //ParagraphList p = new ParagraphList(test);
-            //Console.WriteLine(p.Display());
-            Console.ReadLine();
+                    case Choices.EDIT:
+                        Console.WriteLine("You selected Edit");
+                        Console.ReadKey();
+                        break;
+
+                    case Choices.CLOSE:
+                        Console.WriteLine("You selected Close");
+                        Console.ReadKey();
+                        break;
+                }  // end of switch
+
+                choice = (Choices)menu.GetChoice();
+            }  // end of while
+
         }
         }
     }
