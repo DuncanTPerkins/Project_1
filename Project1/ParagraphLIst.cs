@@ -20,97 +20,124 @@ namespace Project1
 {
     class ParagraphList
     {
-        //List to hold Paragraphs
+        //The list that holds the paragraphs
         private List<Paragraph> Paragraphs = new List<Paragraph>();
 
-        //total number of paragraphs in the list
+        //Variable to hold the number of paragraphs in the list
         private int NumParagraphs { get { return Paragraphs.Count; } }
 
-        //Average length of the paragraphs in the list 
-        private double AverageLength { get
+        //Variable to hold the average length of the paragraphs in the list 
+        private double AverageLength 
         { 
-            //initialize counter to 0
-            int total = 0; 
+            get
+            { 
+                //Create and initialize the counter
+                int total = 0; 
 
-            //for each Paragraph "p" in the List Object Paragraphs 
-            foreach (Paragraph p in Paragraphs) 
-            {
-                //Add each Words Property of each paragraph object to the total
-                total+=p.Words; 
-            }// end foreach
-            //total equals total divided by the total number of Paragraph objects in Paragraphs 
-            total/=Paragraphs.Count; 
-            //return the average
-            return total;
-            } //end getter
+                //Loops through the list of paragraphs
+                foreach (Paragraph p in Paragraphs) 
+                {
+
+                    //Adds the Words property of each paragraph to the counter
+                    total += p.Words; 
+
+                }// end loop
+
+                //Calculates the average words per sentence
+                total /= Paragraphs.Count;
+
+                //Returns the average
+                return total;
+
+                } // end getter
         } // end property
 
         /// <summary>
-        /// Default Constructor
+        /// Default constructor for the class ParagraphList
         /// </summary>
-        public ParagraphList() {
+        public ParagraphList() 
+        {
+
+            //Initialize the Paragraphs list to null
             Paragraphs = null;
+
         } // end default constructor
 
         /// <summary>
         /// Paramaterized Constructor
         /// </summary>
-        /// <param name="Text object passed in for creation of Paragraph"></param>
-        public ParagraphList(Text text) {
-            //initialize paragraph object with text object
+        /// <param name="text">Text object being passed</param>
+        public ParagraphList(Text text) 
+        
+        {
+            //Initialize the Paragraph object passing the Text object
             Paragraph p = new Paragraph(text);
-            //add the object to our Paragraphs list 
+
+            //Adds the paragraph to the Paragraphs list
             Paragraphs.Add(p);
-        }// end constructor
+
+        } // end constructor
 
         /// <summary>
         /// Add a paragraph object to the list 
         /// </summary>
         /// <param name="p">Paragraph object passed in</param>
-        public void AddParagraph(Paragraph p) {
-            //Add paragraph object to our Paragraphs list 
+        public void AddParagraph(Paragraph p) 
+        
+        {
+            //Add paragraph object to the Paragraphs list 
             Paragraphs.Add(p);
-        }// end method 
+
+        } // end method 
 
         /// <summary>
         /// Add a text object to be parsed into a Paragraph object, then added to the list
         /// </summary>
-        /// <param name="t">Text object passed in</param>
-        public void AddTextObject(Text t) {
-            //initialize our paragraph object with our text object
+        /// <param name="t">Text object being passed</param>
+        public void AddTextObject(Text t) 
+        
+        {
+            //Initialize the Paragraph object passing the Text object
             Paragraph p = new Paragraph(t);
-            //Add it to the Paragraphs list 
+
+            //Adds the paragraph to the Paragraphs list
             Paragraphs.Add(p);
-        }// end method
+
+        } // end method
 
         /// <summary>
         /// Format string for output in main driver class
         /// </summary>
         /// <returns>returns formatted string for console display</returns>
-        public string Display() {
-            //initialize counter to 0
-            int counter =0;
+        public string Display() 
+        {
+            //Create and initialize the counter
+            int counter = 0;
 
-            //initialize string to header statement 
-            string str = "Sentences Found in Text:\n";
+            //Create and initialize the string str
+            string str = "Paragraphs found in the text:\n";
 
-            //for each paragraph object in Paragraphs
-            foreach (Paragraph p in Paragraphs) {
-                //append the Sentence counter to the string 
-                str += "\nSentence " + (counter + 1) + ".\n\n";
+            //Loops through the list of paragraphs
+            foreach (Paragraph p in Paragraphs) 
+            {
 
-                //append the current paragraph object's ToString method to str 
+                //Appends the paragraph counter to the string str
+                str += "\nParagraph " + (counter + 1) + ".\n\n";
+
+                //Appends the paragraphs overriding ToString method to the string str
                 str += p.ToString() + "\n";
 
-                //increment the counter by 1
+                //Increments the counter by 1
                 counter++;
 
-            }// end foreach
-            str += "\n\nThere are : " + NumParagraphs + " Paragraphs." + "           " + "The average number of words in the paragraph is: " + AverageLength + "\n";
+            } // end loop
 
+            //Appends the number of paragraphs and the average to the string str
+            str += "\n\nThere are " + NumParagraphs + " paragraphs." + "          " + "The average number of words in the paragraphs is: " + AverageLength + "\n";
+
+            //Returns the string str
             return str;
-        }//end method
 
-
-    }// end class
-}// end namespace
+        } // end method
+    } // end class
+} // end namespace
