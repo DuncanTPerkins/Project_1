@@ -1,1 +1,1 @@
-﻿hello, there! My name is John, I type things into consoles, I enjoy this life. \n\n \t \r\n
+﻿hello, there! My name is John, I type things into consoles, I enjoy this life. 

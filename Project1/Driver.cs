@@ -24,21 +24,26 @@ namespace Project1
         {
             Text test = new Text();
             test.GetTokens();
-            Sentence s = new Sentence(test, 0);
+            //Sentence s = new Sentence(test, 0);
 
-            Console.WriteLine(Utility.FormatText(s.ToString()));
+            //Console.WriteLine(Utility.FormatText(s.ToString()));
             //SentenceList sl = new SentenceList(test);
             //sl.Display();
-            Words testWords = new Words(test);
-            testWords.Display();
-            foreach(var i in test.Tokens)
-            {
-                Console.WriteLine(i);
-            }
+            //Words testWords = new Words(test);
+            //testWords.Display();
+            //foreach(var i in test.Tokens)
+            //{
+            //    Console.WriteLine(i);
+            //}
 
-            Paragraph getSentences = new Paragraph(test);
-            Console.WriteLine(getSentences.ToString());
-            
+            //Paragraph getSentences = new Paragraph(test);
+            //Console.WriteLine(getSentences.ToString());
+            ParagraphList p = new ParagraphList(test);
+            p.AddTextObject(test);
+            p.AddTextObject(test);
+            p.AddTextObject(test);
+
+            Console.WriteLine(p.Display());
             Console.ReadLine();
         }
         }
