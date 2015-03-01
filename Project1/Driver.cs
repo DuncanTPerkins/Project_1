@@ -27,8 +27,8 @@ namespace Project1
             //Sentence s = new Sentence(test, 0);
 
             //Console.WriteLine(Utility.FormatText(s.ToString()));
-            //SentenceList sl = new SentenceList(test);
-            //sl.Display();
+            SentenceList sl = new SentenceList(test);
+            sl.Display();
             //Words testWords = new Words(test);
             //testWords.Display();
             //foreach(var i in test.Tokens)
@@ -38,8 +38,8 @@ namespace Project1
 
             //Paragraph getSentences = new Paragraph(test);
             //Console.WriteLine(getSentences.ToString());
-            ParagraphList p = new ParagraphList(test);
-            Console.WriteLine(p.Display());
+            //ParagraphList p = new ParagraphList(test);
+            //Console.WriteLine(p.Display());
             Console.ReadLine();
         }
         }

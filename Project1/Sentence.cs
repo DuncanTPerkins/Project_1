@@ -23,8 +23,20 @@ namespace Project1
     class Sentence 
     {
         //public and private variables for the number of tokens counted
-        public int WordCount { get { return _wordcount; } set { _wordcount = value; } }
-        private int _wordcount;
+        public int WordCount 
+        { 
+           get 
+                {
+                    int count = 0;
+                    foreach (string s in SentenceList) {
+                        match = isWord.Match(s);
+                        if (match.Success) {
+                            count++;
+                        }
+                    }
+                    return count;
+           }  
+        }
 
         //public and private variables for Average Length of tokens
         //we round the Average number when we take it in because otherwise it's unwieldy
@@ -52,16 +64,20 @@ namespace Project1
         //Regular Expression for matching against any Letter, Number, 
         //or Underscore for the purpose of spacing the sentence correctly when .ToString is called
         private static Regex isLetter = new Regex(@"^[a-zA-Z0-9_]+$");
-
+        
+        //Regular Expression for testing against words 
+        private Regex isWord = new Regex("\\w+");
         //An instance of the match class for matching against Regular Expressions
         private static Match match;
+
+        //index of the ending Sentence
+        public int ReturnIndex { get; private set; }
 
         /// <summary>
         /// default constructor for Sentence class. Initializes everything to empty.
         /// </summary>
         public Sentence()
         {
-            WordCount = 0;
             AverageLength = 0;
             FirstToken = "";
             LastToken = "";
@@ -108,6 +124,8 @@ namespace Project1
 
                 //trim the end of our sentence list to the index of the first sentence-ending token (.?!)
                 SentenceList = SentenceList.GetRange(0, _counter);
+                //assign the counter of the loop to the return index's value 
+                ReturnIndex = _counter;
                 //Get Word Count, Average Length, and First and Last tokens
                 GetMetrics();
             
@@ -123,7 +141,10 @@ namespace Project1
             int count = 0;
             //for each token in the sentence, add the length of the token to the variable count, then return it 
             foreach (string s in SentenceList) {
-                count += s.Length;
+                match = isWord.Match(s);
+                if (match.Success) {
+                    count += s.Length;
+                }
             }
             return count;
         }
@@ -133,8 +154,6 @@ namespace Project1
         /// </summary>
         public void GetMetrics()
         {
-            //Get length of Sentence
-            WordCount = SentenceList.Count;
             //Get average from GetAverage method
             AverageLength = GetAverage();
             //token at 0 index is first token
@@ -153,11 +172,14 @@ namespace Project1
             //for every token in the sentence, add the length of the token to average...
             foreach (string s in SentenceList)
             {
-                average += s.Length;
+                match = isWord.Match(s);
+                if (match.Success) {
+                    average += s.Length;
+                }
             } //end foreach
 
             //...and then divide by total number of tokens 
-            average /= SentenceList.Count;
+            average /= WordCount;
 
             //return average
             return average;

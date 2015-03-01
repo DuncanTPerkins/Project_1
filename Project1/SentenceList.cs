@@ -39,9 +39,13 @@ namespace Project1
         }
 
         public SentenceList(Text text) {
+            int ReturnIndex = 0;
             Sentences = new List<Sentence>();
-            Sentence sentence = new Sentence(text, 0);
-            Sentences.Add(sentence);
+            while (ReturnIndex < text.Tokens.Count) {
+                Sentence sentence = new Sentence(text, ReturnIndex);
+                Sentences.Add(sentence);
+                ReturnIndex += sentence.ReturnIndex;
+            }
         }
 
         public void AddSentence(Sentence s) {
