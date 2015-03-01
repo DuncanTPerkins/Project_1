@@ -35,8 +35,9 @@ namespace Project1
             {
                 Console.WriteLine(i);
             }
-            //Paragraph getSentences = new Paragraph(test);
-            //getSentences.ToString();
+
+            Paragraph getSentences = new Paragraph(test);
+            Console.WriteLine(getSentences.ToString());
             
             Console.ReadLine();
         }
