@@ -76,7 +76,10 @@ namespace Utils
             Console.WriteLine (str);
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine ("\n\n\t   " + Title);
+            Utility.Skip(1);
+            Utility.WelcomeMessage("Computer Science 2210 Project 1", "Chance Reichenberg", "Duncan Perkins", "Chris Harris");
+            Utility.Skip(1);
+            Console.WriteLine ("\t   " + Title);
             Console.Write ("\t   ");
             for (int n = 0; n < Title.Length; n++)
                 Console.Write ("-");

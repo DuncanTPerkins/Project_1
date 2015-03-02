@@ -119,10 +119,9 @@ namespace Utils
 
             }//End For
 
-            //While loop to spaces and empty strings
-            //while (tokenizedLine.Remove("") || tokenizedLine.Remove(" ")) { }//End While
 
-            return tokenizedLine.Where(x=> x != "" || x != " ").ToList();
+            //Linq statement used to omit blank and empty strings from the returned list
+            return tokenizedLine.Where(x=> x != "" && x != " ").ToList();
         }//End Tokenize
     }
 }
