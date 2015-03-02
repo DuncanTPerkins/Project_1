@@ -116,12 +116,14 @@ namespace Project1
             //int counter = 0;
             for(int i =0; i < GetParagraph.Count; i++) 
             {
+
+                //Checks for the end of the paragraph using two new line characters, two carriage return characters or the end of the list
                 match = EndParagraph.Match(GetParagraph[i]);
-                if (match.Success) {
+                if (match.Success) 
+                {
                     EndingIndex = i + 1;
                     break;
                 }
-                //Checks for the end of the paragraph using two new line characters, two carriage return characters or the end of the list
 
             } //end for
 
