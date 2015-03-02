@@ -62,11 +62,11 @@ namespace Project1
 
             //    choice = (Choices)menu.GetChoice();
             //}  // end of while
-
-            Text t = new Text();
-            t.GetTokens();
-            Paragraph p = new Paragraph(t);
-            Console.WriteLine(p.ToString());
+            Console.WriteLine("Input Text to be Parsed");
+            string input = Console.ReadLine();
+            Text t = new Text(input, 1);
+            SentenceList s = new SentenceList(t);
+            s.Display();
             Console.ReadLine();
         }
         }

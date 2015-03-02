@@ -2,7 +2,7 @@
 //
 //	Project:	    Project 1
 //	File Name:		SentenceList.cs
-//	Description:    Converts text files into tokens
+//	Description:    Holds a List of Sentence Objects
 //	Course:			CSCI 2210-001 - Data Structures
 //	Author:			Duncan Perkins, perkinsdt@goldmail.etsu.edu, Department of Computing, East Tennessee State University
 //	Created:	    Thursday, February 15, 2015
