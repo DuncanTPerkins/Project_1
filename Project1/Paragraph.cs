@@ -33,18 +33,20 @@ namespace Project1
         {
             get
             {
+
                 //Initialize the counter
                 int gettercounter = 0;
 
                 //Loops through the tokens counting any token that is not a delimiter
                 foreach (string s in GetParagraph)
                 {
-                    match = IsLetter.Match(s);
+                    match = aLetter.Match(s);
                     if (match.Success)
                     {
                         gettercounter++;
                     }
                 }
+
                 return gettercounter;
             }
         }
@@ -61,7 +63,7 @@ namespace Project1
         private string _lastToken;
         public string LastToken { get { return _lastToken; } set { _lastToken = value; } }
         
-        //Variables for the list that will store the sentences
+        //Variables for the list that will store the paragraphs
         private List<string> _getparagraph;
         public List<string> GetParagraph { get { return _getparagraph; } set { _getparagraph = value; } }
 
@@ -72,10 +74,10 @@ namespace Project1
         private static Regex EndSentence = new Regex("[?.!]");
 
         //Regex pattern for checking if it is a letter
-        private static Regex IsLetter = new Regex(@"^[a-zA-Z0-9_]+$");
+        private static Regex aLetter = new Regex(@"^[a-zA-Z0-9_]+$");
 
         //Regex pattern for checking if it is a word
-        private static Regex IsWord = new Regex("\\w+");
+        private static Regex aWord = new Regex("\\w+");
 
         //Create the match object to perform matching using regular expressions
         private static Match match;
@@ -88,6 +90,7 @@ namespace Project1
         /// </summary>
         public Paragraph()
         {
+
             //This initializes everything in the class
             Sentences = 0;
             AverageLength = 0;
@@ -103,6 +106,7 @@ namespace Project1
         /// <param name="text">The object that holds the tokenized input</param>
         public Paragraph(Text text)
         {
+
             //This populates the GetParagraph list with the tokens from the tokenize method
             GetParagraph = text.Tokens;
 
@@ -138,8 +142,12 @@ namespace Project1
             {
                 //If it's the end of a sentence
                 match = EndSentence.Match(s);
-                if (match.Success) {
+
+                if (match.Success) 
+                {
+
                     counter++;
+
                 } //end if  
             } //end foreach
 
@@ -150,6 +158,7 @@ namespace Project1
             AverageLength = (Words / Sentences);
 
             return Sentences;
+
         } //end method 
 
         /// <summary>
@@ -165,17 +174,20 @@ namespace Project1
             foreach (string s in GetParagraph)
             {
                 //initalize match with Word Regex and current string token
-                match = IsWord.Match(s);
+                match = aWord.Match(s);
 
                 //if the match is a success and we aren't on the first token
                 if (match.Success && s != FirstToken)
                 {
+
                     //append a space to str (so the output looks nice)
                     str += " ";
+
                 } //end if 
 
                 //append the current token to the string 
                 str += s;
+
             }//end method 
 
             //Sets the variable to display the stats needed
@@ -183,6 +195,7 @@ namespace Project1
 
             //Returns the string
             return str;
+
         } //end of overriding ToString method
     } //end of class
 } //end of namespace
