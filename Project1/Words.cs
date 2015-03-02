@@ -24,7 +24,7 @@ namespace Project1
     /// </summary>
     class Words
     {
-        private Regex wordPattern = new Regex("^([a-z]|[A-Z])");
+        private Regex wordPattern = new Regex(@"^\w");
 
         #region Properties
 
@@ -81,12 +81,12 @@ namespace Project1
             int count = 0;
 
             Console.WriteLine("Distinct words found in the text with their number of occurrences.");
-            Console.WriteLine(Utility.FormatText("  Word\t\t\tCount",5,80));
-            Console.WriteLine(Utility.FormatText("  ----\t\t\t----",5,80));
+            Console.WriteLine(Utility.FormatText("  Word\t\t\tCount",5,40));
+            Console.WriteLine(Utility.FormatText("  ----\t\t\t----",5,40));
             foreach(var item in DistinctWords)
             {
                 count++;
-                Console.WriteLine(Utility.FormatText(String.Format("{0,3}.  {1}",count, item), 2, 80));
+                Console.WriteLine(Utility.FormatText(String.Format("{0,3}.  {1}",count, item), 2, 40));
             }//End Foreach
         }//End Method
 

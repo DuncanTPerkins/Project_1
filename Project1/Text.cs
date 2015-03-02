@@ -43,6 +43,7 @@ namespace Project1
         {
             Original = "";
             GetFile();
+            GetTokens();
         }
 
         /// <summary>

@@ -17,34 +17,44 @@ using System.Threading.Tasks;
 using Utils;
 namespace Project1
 {
+    /// <summary>
+    /// Driver class for Project 1 
+    /// </summary>
     class Driver
     {
+        /// <summary>
+        /// Main method to demonstrate various classes and functionality of Project 1
+        /// </summary>
+        /// <param name="args"></param>
         [STAThread]
         static void Main(string[] args)
         {
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Title = "Menu Demonstration Application";
-
-            Menu menu = new Menu("Menu Demo");
-            menu = menu + "Open a file" + "Edit the file" + "Close the file" + "Quit";
+            Console.Title = "Project 1";
+            
+            Text textData;
+            Menu menu = new Menu("Project 1 Options");
+            menu = menu + "Words from the file" + "Sentences from the file" + "Paragraphs from the file" + "Quit";
 
             Choices choice = (Choices)menu.GetChoice();
+            
             while (choice != Choices.QUIT)
             {
                 switch (choice)
                 {
-                    case Choices.OPEN:
-                        Console.WriteLine("You selected Open");
+                        //Case that displays Distinct Word and Words classes
+                    case Choices.WORDS:
+                        Words wordList = new Words(textData = new Text());
+                        wordList.Display();
                         Console.ReadKey();
                         break;
 
-                    case Choices.EDIT:
-                        Console.WriteLine("You selected Edit");
+                    case Choices.SENTENCES:
+                        Console.WriteLine("You selected Close");
                         Console.ReadKey();
                         break;
-
-                    case Choices.CLOSE:
+                    case Choices.PARAGRAPHS:
                         Console.WriteLine("You selected Close");
                         Console.ReadKey();
                         break;

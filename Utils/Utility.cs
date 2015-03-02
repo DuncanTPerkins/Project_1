@@ -4,7 +4,7 @@
 //	File Name:		Utility.cs
 //	Description:    Holds various static methods to be used throughout the project
 //	Course:			CSCI 2210-001 - Data Structures
-//	Author:			Chance Reichenberg, reichenberg@etsu.edu, Duncan Perkins, perkinsdt@goldmail.etsu.edu, Department of Computing, East Tennessee State University
+//	Author:			Chance Reichenberg, reichenberg@etsu.edu, Department of Computing, East Tennessee State University
 //	Created:	    Thursday, February 15, 2015
 //	Copyright:		Chance Reichenberg, 2015
 //
@@ -27,9 +27,9 @@ namespace Utils
         /// </summary>
         /// <param name="caption">The Message to be displayed</param>
         /// <param name="author">The author of the program</param>
-        public static void WelcomeMessage(string caption = "Computer Science 2210", string author = "Chance Reichenberg")
+        public static void WelcomeMessage(string caption = "Computer Science 2210", string author = "", string author2 = "", string author3 = "")
         {
-            Console.WriteLine("{0}: {1}", caption, author);
+            Console.WriteLine("{0}: {1},{2},{3}", caption, author, author2, author3);
         }//End Method
 
         /// <summary>
@@ -103,69 +103,21 @@ namespace Utils
                 }//End if
 
             }//End While
+
             for (int i = 0; i < tokenizedLine.Count; i++)
             {
                 if (tokenizedLine[i] == "n" || tokenizedLine[i] == "r")
                 {
                     tokenizedLine[i] = @"\" + tokenizedLine[i];
                     tokenizedLine.Remove(tokenizedLine[i - 1]);
-                }
+                }//End if
 
-            }
+            }//End For
 
-            while (tokenizedLine.Remove("") || tokenizedLine.Remove(" ")) { }
+            //While loop to spaces and empty strings
+            //while (tokenizedLine.Remove("") || tokenizedLine.Remove(" ")) { }//End While
 
-            return tokenizedLine;
+            return tokenizedLine.Where(x=> x != "" || x != " ").ToList();
         }//End Tokenize
-
-        //public static List<String> Tokenize(string original, string delimiters)
-        //{
-        //    //List for Taking apart the string
-        //    List<String> list = new List<String>();
-
-        //    //String to perform the cutting on
-        //    String CompareString = original;
-
-        //    //infinite loop for String cutting
-        //    while (true)
-        //    {
-
-        //        //get the index of the earliest delimeter 
-        //        int index = CompareString.IndexOfAny(delimiters.ToCharArray());
-
-        //        //if there aren't any, break out of the loop
-        //        if (index < 0) { break; }
-
-        //        //if a delimeter is found, 
-        //        else
-        //        {
-        //            CompareString.Trim();
-        //            //add the characters
-        //            list.Add(CompareString.Substring(0, index));
-
-        //            //add the delimiter
-        //            if (string.IsNullOrWhiteSpace(CompareString.Substring(index, 1)))
-        //            {
-        //                //don't add the delimiter if it's a space
-        //            }
-        //            else
-        //            {
-        //                list.Add(CompareString.Substring(index, 1));
-        //            }
-        //            //resize the compared string
-        //            CompareString = CompareString.Substring(index + 1);
-        //        }
-        //    }//end loop6
-
-
-        //    for (var i = 0; i < list.Count; i++)
-        //    {
-        //        if(string.IsNullOrWhiteSpace(list[i])) {list.Remove(list[i]);}
-
-        //    }
-        //    //return list of tokens
-        //    return list;
-
-        //}
     }
 }

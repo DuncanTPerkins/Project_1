@@ -12,8 +12,8 @@
 
 namespace Utils
 {
-    enum Choices
+    public enum Choices
     {
-        OPEN = 1, EDIT, CLOSE, QUIT
+        WORDS = 1, SENTENCES, PARAGRAPHS, QUIT
     }
 }
