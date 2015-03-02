@@ -100,6 +100,11 @@ namespace Utils
                     }//End If
 
                     startingIndex = endingIndex + 1;
+                }
+                else            //Adds the final string of the original string to the list of tokens
+                {
+                    int length = line.Length - startingIndex;
+                    tokenizedLine.Add(line.Substring(startingIndex, length));
                 }//End if
 
             }//End While
