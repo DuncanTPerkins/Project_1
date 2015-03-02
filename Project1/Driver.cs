@@ -29,39 +29,59 @@ namespace Project1
         [STAThread]
         static void Main(string[] args)
         {
-            //Console.BackgroundColor = ConsoleColor.White;
-            //Console.ForegroundColor = ConsoleColor.Blue;
-            //Console.Title = "Project 1";
-            
-            //Text textData;
-            //Menu menu = new Menu("Project 1 Options");
-            //menu = menu + "Words from the file" + "Sentences from the file" + "Paragraphs from the file" + "Quit";
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Title = "Project 1";
 
-            //Choices choice = (Choices)menu.GetChoice();
-            
-            //while (choice != Choices.QUIT)
-            //{
-            //    switch (choice)
-            //    {
-            //            //Case that displays Distinct Word and Words classes
-            //        case Choices.WORDS:
-            //            Words wordList = new Words(textData = new Text());
-            //            wordList.Display();
-            //            Console.ReadKey();
-            //            break;
+            Text textData;
+            Menu menu = new Menu("Project 1 Options");
 
-            //        case Choices.SENTENCES:
-            //            Console.WriteLine("You selected Close");
-            //            Console.ReadKey();
-            //            break;
-            //        case Choices.PARAGRAPHS:
-            //            Console.WriteLine("You selected Close");
-            //            Console.ReadKey();
-            //            break;
-            //    }  // end of switch
+            menu = menu + "Words from the file" + "Sentences from the file" + "Paragraphs from the file" + "Quit";
 
-            //    choice = (Choices)menu.GetChoice();
-            //}  // end of while
+            int textChoice;
+            string inputText;
+            Choices choice = (Choices)menu.GetChoice();
+
+            while (choice != Choices.QUIT)
+            {
+                switch (choice)
+                {
+                    //Case that displays Distinct Word and Words classes
+                    case Choices.WORDS:
+
+
+                        Console.WriteLine("Enter a '0' if you wish to open a file. Enter '1' if you wish to enter a text string.");
+                        textChoice = Console.Read();
+
+                        if (textChoice == 0)
+                        {
+                            textData = new Text();
+                        }
+                        else if (textChoice == 1)
+                        {
+                            Console.WriteLine("Please enter the string you wish to evaluate below.");
+                            inputText = Console.ReadLine();
+                            textData = new Text(inputText, 1);
+                        }
+
+
+                        Words wordList = new Words(textData = new Text());
+                        wordList.Display();
+                        Console.ReadKey();
+                        break;
+
+                    case Choices.SENTENCES:
+                        Console.WriteLine("You selected Close");
+                        Console.ReadKey();
+                        break;
+                    case Choices.PARAGRAPHS:
+                        Console.WriteLine("You selected Close");
+                        Console.ReadKey();
+                        break;
+                }  // end of switch
+
+                choice = (Choices)menu.GetChoice();
+            }  // end of while
 
             //Console.WriteLine("Input Text to be Parsed");
             //string input = Console.ReadLine();
@@ -69,11 +89,11 @@ namespace Project1
             //SentenceList s = new SentenceList(t);
             //s.Display();
 
-            Text test = new Text();
-            test.GetTokens();
-            Paragraph p = new Paragraph(test);
-            Console.WriteLine(p.ToString());
-            Console.ReadLine();
+            //Text test = new Text();
+            //test.GetTokens();
+            //Paragraph p = new Paragraph(test);
+            //Console.WriteLine(p.ToString());
+            //Console.ReadLine();
         }
         }
     }
