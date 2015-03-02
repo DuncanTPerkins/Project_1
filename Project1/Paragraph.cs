@@ -68,7 +68,7 @@ namespace Project1
         public List<string> GetParagraph { get { return _getparagraph; } set { _getparagraph = value; } }
 
         //Regex pattern used to determine the end of a paragraph
-        private static Regex EndParagraph = new Regex("FUCK THIS REGEX");
+        private static Regex EndParagraph = new Regex("(\\r\\n|\\r|\\n)");
 
         //Regex pattern for checking the end of a sentence
         private static Regex EndSentence = new Regex("[?.!]");
@@ -116,12 +116,20 @@ namespace Project1
             //int counter = 0;
             for(int i =0; i < GetParagraph.Count; i++) 
             {
+
+                //Checks for the end of the paragraph using two new line characters, two carriage return characters or the end of the list
+                //if ((GetParagraph[i] == "\\n" && GetParagraph[i + 1] == "\\n") || (GetParagraph[i] == "\\r" && GetParagraph[i + 1] == "\\r") || i + 1 == GetParagraph.Count)
+                //{
+                //    EndingIndex = i + 1;
+                //    break;
+                //}
+
                 match = EndParagraph.Match(GetParagraph[i]);
-                if (match.Success) {
+                if (match.Success) 
+                {
                     EndingIndex = i + 1;
                     break;
                 }
-                //Checks for the end of the paragraph using two new line characters, two carriage return characters or the end of the list
 
             } //end for
 
