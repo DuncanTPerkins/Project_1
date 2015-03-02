@@ -29,40 +29,45 @@ namespace Project1
         [STAThread]
         static void Main(string[] args)
         {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Title = "Project 1";
+            //Console.BackgroundColor = ConsoleColor.White;
+            //Console.ForegroundColor = ConsoleColor.Blue;
+            //Console.Title = "Project 1";
             
-            Text textData;
-            Menu menu = new Menu("Project 1 Options");
-            menu = menu + "Words from the file" + "Sentences from the file" + "Paragraphs from the file" + "Quit";
+            //Text textData;
+            //Menu menu = new Menu("Project 1 Options");
+            //menu = menu + "Words from the file" + "Sentences from the file" + "Paragraphs from the file" + "Quit";
 
-            Choices choice = (Choices)menu.GetChoice();
+            //Choices choice = (Choices)menu.GetChoice();
             
-            while (choice != Choices.QUIT)
-            {
-                switch (choice)
-                {
-                        //Case that displays Distinct Word and Words classes
-                    case Choices.WORDS:
-                        Words wordList = new Words(textData = new Text());
-                        wordList.Display();
-                        Console.ReadKey();
-                        break;
+            //while (choice != Choices.QUIT)
+            //{
+            //    switch (choice)
+            //    {
+            //            //Case that displays Distinct Word and Words classes
+            //        case Choices.WORDS:
+            //            Words wordList = new Words(textData = new Text());
+            //            wordList.Display();
+            //            Console.ReadKey();
+            //            break;
 
-                    case Choices.SENTENCES:
-                        Console.WriteLine("You selected Close");
-                        Console.ReadKey();
-                        break;
-                    case Choices.PARAGRAPHS:
-                        Console.WriteLine("You selected Close");
-                        Console.ReadKey();
-                        break;
-                }  // end of switch
+            //        case Choices.SENTENCES:
+            //            Console.WriteLine("You selected Close");
+            //            Console.ReadKey();
+            //            break;
+            //        case Choices.PARAGRAPHS:
+            //            Console.WriteLine("You selected Close");
+            //            Console.ReadKey();
+            //            break;
+            //    }  // end of switch
 
-                choice = (Choices)menu.GetChoice();
-            }  // end of while
+            //    choice = (Choices)menu.GetChoice();
+            //}  // end of while
 
+            Text t = new Text();
+            t.GetTokens();
+            Paragraph p = new Paragraph(t);
+            Console.WriteLine(p.ToString());
+            Console.ReadLine();
         }
         }
     }

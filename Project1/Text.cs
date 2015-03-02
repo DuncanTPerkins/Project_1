@@ -49,11 +49,20 @@ namespace Project1
         /// <summary>
         /// constructor for passing in a file path to be tokenized
         /// </summary>
-        /// <param name="filename">path to file the user wants tokenized</param>
-        public Text(string filename)
+        /// <param name="input">path to file the user wants tokenized, or a string to be tokenized</param>
+        /// <param name="context">tells us the context of what string input contains</param>
+        public Text(string input, int context)
         {
-            Original = "";
-            _fileName = filename;
+            //if the context is 0, string input is the directory to a text file 
+            if (context==0) {
+                Original = "";
+                _fileName = input;
+            }
+
+            //if the context is 1, string input is a string to be tokenized 
+            if (context == 1) {
+                Tokens = Utility.Tokenize(input, delims);
+            }
 
         }
         /// <summary>
