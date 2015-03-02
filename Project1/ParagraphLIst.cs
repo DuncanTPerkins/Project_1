@@ -24,7 +24,7 @@ namespace Project1
         private List<Paragraph> Paragraphs = new List<Paragraph>();
 
         //Variable to hold the number of paragraphs in the list
-        private int NumParagraphs { get { return Paragraphs.Count; } }
+        private int TotalParagraphs { get { return Paragraphs.Count; } }
 
         //Variable to hold the average length of the paragraphs in the list 
         private double AverageLength 
@@ -133,7 +133,7 @@ namespace Project1
             } // end loop
 
             //Appends the number of paragraphs and the average to the string str
-            str += "\n\nThere are " + NumParagraphs + " paragraphs." + "          " + "The average number of words in the paragraphs is: " + AverageLength + "\n";
+            str += "\n\nThere are " + TotalParagraphs + " paragraphs." + "          " + "The average number of words in the paragraphs is: " + AverageLength + "\n";
 
             //Returns the string str
             return str;
