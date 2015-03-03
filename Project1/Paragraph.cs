@@ -124,13 +124,6 @@ namespace Project1
                     break;
                 }
 
-                //match = EndParagraph.Match(GetParagraph[i]);
-                //if (match.Success) 
-                //{
-                //    EndingIndex = i + 1;
-                //    break;
-                //}
-
             } //end for
 
             //Cut out the tokens that are not in the paragraph
