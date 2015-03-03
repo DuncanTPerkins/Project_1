@@ -24,6 +24,7 @@ namespace Project1
     /// </summary>
     class Words
     {
+        //Used to match words in the list
         private Regex wordPattern = new Regex(@"^\w");
 
         #region Properties
@@ -59,6 +60,7 @@ namespace Project1
         {
             DistinctWords = new List<DistinctWord>();
 
+            //Loops through the list and checks if the item is a word
             foreach(var item in words.Tokens)
             {
                 if(wordPattern.IsMatch(item))
@@ -96,6 +98,7 @@ namespace Project1
         /// <param name="tempWord">The word to be added</param>
         private void AddWordOrCount(DistinctWord tempWord)
         {
+            //if it is a word it checks to see if it is already in the list and adds it to the respective words count
             if (!DistinctWords.Contains(tempWord))
             {
                 DistinctWords.Add(tempWord);

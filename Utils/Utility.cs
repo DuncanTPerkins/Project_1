@@ -86,13 +86,20 @@ namespace Utils
             
             while (endingIndex != -1)
             {
-                endingIndex = line.IndexOfAny(delimArray, startingIndex);
+                endingIndex = line.IndexOfAny(delimArray, startingIndex);   //Finds the index of the next delimeter
 
                 if (endingIndex != -1)
                 {
-                    int stringLength = endingIndex - startingIndex;
+                    int stringLength = endingIndex - startingIndex;         //Gets the length of the string to be cut
 
-                    tokenizedLine.Add(line.Substring(startingIndex, stringLength));
+                    //Cuts out the substring and checks to see if it is empty or not before adding
+                    subStringToAdd = line.Substring(startingIndex, stringLength);
+                    if (!String.IsNullOrWhiteSpace(subStringToAdd) && !String.IsNullOrEmpty(subStringToAdd))
+                    {
+                        tokenizedLine.Add(subStringToAdd);
+                    }//End If
+
+                    //Used to add punctuation marks and delete empty spaces between words
                     subStringToAdd = line.Substring(endingIndex, 1);
                     if (!String.IsNullOrWhiteSpace(subStringToAdd) && !String.IsNullOrEmpty(subStringToAdd))
                     {
@@ -100,7 +107,7 @@ namespace Utils
                     }//End If
 
                     startingIndex = endingIndex + 1;
-                }
+                }//End if
                 else            //Adds the final string of the original string to the list of tokens
                 {
                     int length = line.Length - startingIndex;
@@ -121,7 +128,7 @@ namespace Utils
 
 
             //Linq statement used to omit blank and empty strings from the returned list
-            return tokenizedLine.Where(x=> x != "" && x != " ").ToList();
+            return tokenizedLine;
         }//End Tokenize
     }
 }
