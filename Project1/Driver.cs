@@ -124,7 +124,34 @@ namespace Project1
                         Console.ReadKey();
                         break;
                     case Choices.PARAGRAPHS:
-                        Console.WriteLine("You selected Close");
+                        Utility.Skip(2);
+
+                        Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
+                        line = Console.ReadLine();
+
+                        while(!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                        {
+                            Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                            line = Console.ReadLine();
+                        }//End While
+
+                        if (textChoice == 0)
+                        {
+                            textData = new Text();
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter the string you wish to evaluate below.");
+                            inputText = Console.ReadLine();
+                            textData = new Text(inputText, 1);
+                        }//End if
+
+                        Utility.Skip(2);
+
+                        Paragraph paragraph = new Paragraph(textData);
+                        Console.WriteLine(paragraph.ToString());
+
                         Console.ReadKey();
                         break;
                 }  // end of switch
