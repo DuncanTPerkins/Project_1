@@ -196,10 +196,10 @@ namespace Project1
                         Utility.Skip(2);
 
                         //Creates the paragraph object passing in the text object
-                        Paragraph paragraph = new Paragraph(textData);
+                        ParagraphList paragraph = new ParagraphList(textData);
 
                         //Outputs the paragraph and the paragraph stats
-                        Console.WriteLine(paragraph.ToString());
+                        Console.WriteLine(paragraph.Display());
 
                         Console.ReadKey();
                         break;
@@ -215,7 +215,7 @@ namespace Project1
             }
             catch(NullReferenceException e) //Catches if the user did not try to re-enter their incorrect User Data
             {
-                Console.WriteLine("You did not enter appropriate user data at the start of the program when prompted to try again.")
+                Console.WriteLine("You did not enter appropriate user data at the start of the program when prompted to try again.");
             }
             
             Console.ReadKey();
