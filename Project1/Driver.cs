@@ -76,7 +76,7 @@ namespace Project1
             Text textData;
             Menu menu = new Menu("Project 1 Options");
 
-            menu = menu + "Words from the file" + "Sentences from the file" + "Paragraphs from the file" + "Quit";
+            menu = menu + "Words from the File" + "Sentences from the File" + "Paragraphs from the File" + "Quit";
 
             string line, inputText;
             int textChoice;
@@ -92,7 +92,7 @@ namespace Project1
                         Utility.Skip(2);
 
                         //Output to ask for user input
-                        Console.WriteLine("\nEnter a '0' if you wish to open a file.\nEnter '1' if you wish to enter a text string.");
+                        Console.WriteLine("\nEnter a '0' if you wish to open a file.\n\nEnter '1' if you wish to enter a text string.");
                         line = Console.ReadLine();
 
                         //Takes user input and determines if it is valid or not
