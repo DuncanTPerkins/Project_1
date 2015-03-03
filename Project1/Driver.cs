@@ -2,7 +2,7 @@
 //
 //	Project:	    Project 1
 //	File Name:		Driver.cs
-//	Description:    ?????
+//	Description:    Displays the menu loop and provides examples of the classes in the project
 //	Course:			CSCI 2210-001 - Data Structures
 //	Authors:		Chance Reichenberg, reichenberg@etsu.edu, Duncan Perkins, perkinsdt@goldmail.etsu.edu, Chris Harris, harriscr1@goldmail.etsu.edu  Department of Computing, East Tennessee State University
 //	Created:	    Thursday, February 5, 2015
@@ -67,7 +67,7 @@ namespace Project1
                     Console.WriteLine(e.Message);
                 }
 
-                Console.WriteLine("Enter 'Y' to continue entering data.");
+                Console.WriteLine("Enter 'Y' to restart entering user data, or press enter to continue.");
                 sentinelValue = Console.ReadLine();
                 Console.WriteLine("\n\n");
             }//End While

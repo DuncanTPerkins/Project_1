@@ -5,7 +5,7 @@
 //	Description:    Converts text files into tokens
 //	Course:			CSCI 2210-001 - Data Structures
 //	Author:			Duncan Perkins, perkinsdt@goldmail.etsu.edu, Department of Computing, East Tennessee State University
-//	Created:	    Tuesday, February 23rd, 2015
+//	Created:	    Tuesday, February 15th, 2015
 //	Copyright:		Duncan Perkins, 2015
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,7 +143,7 @@ namespace Project1
             foreach (string s in WordList) {
                 match = isWord.Match(s);
                 if (match.Success) {
-                    count += s.Length;
+                    count ++;
                 }
             }
             return count;
@@ -210,7 +210,7 @@ namespace Project1
             }//end foreach
 
             //append Word Count to String 
-            str+="\n\nTotal Words: " + WordCount + "             " + "Average Word Length: " + AverageLength +"\n";
+            str+="\n\n Total Words: " + WordCount + "             " + "Average Word Length: " + AverageLength +"\n";
 
             //trim leading and trailing white spaces when returning Sentence
             return str;

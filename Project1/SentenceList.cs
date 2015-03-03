@@ -29,14 +29,14 @@ namespace Project1
         public double AverageLength {
             get {
                 //initialize counter variable 
-                int count = 0;
+                double count = 0;
 
                 //for each Sentence object s in Sentences List
                 foreach (Sentence s in Sentences) {
                     //Count = Count + the total number of tokens in Sentence s that are words
                     count += s.GetTotalLength();
                 }// end foreach loop
-                count/=SentencesCount;
+                count/=(SentencesCount-1);
                 return count;
             }// end getter 
             
@@ -62,7 +62,7 @@ namespace Project1
             Sentences = new List<Sentence>();
 
             //while the return index is less than the total number of tokens in the Text object
-            while (ReturnIndex+1 < text.Tokens.Count) {
+            while (ReturnIndex < text.Tokens.Count) {
 
                 //create a new Sentence object, passing in the Text object and the current starting Index 
                 Sentence sentence = new Sentence(text, ReturnIndex);
@@ -79,19 +79,31 @@ namespace Project1
         /// print out the Sentence objects and their stats
         /// </summary>
         public void Display() {
+            //clear console 
+            Console.Clear();
+
+            //set console font color to red
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            //initial print out message
             Console.WriteLine("Sentences Found in the Text:\n");
 
             //for every Sentence object in the Sentences List 
             for (int i = 0; i < Sentences.Count-1; i++) {
 
+                //console theming 
+                Console.ForegroundColor = ConsoleColor.Red;
+
                 //Append the Sentence number 
                 Console.WriteLine("Sentence " + (i + 1) + "\n");
 
+                Console.ForegroundColor = ConsoleColor.Blue;
                 //Append the ToString method of the current Sentence object
                 Console.WriteLine(Sentences[i].ToString());
             } // end for loop
+            Console.ForegroundColor = ConsoleColor.Red;
             //Output total ending data
-            Console.WriteLine("There are " + (SentencesCount-1) + " sentences with an average length of " + AverageLength + " words.");
+            Console.WriteLine("\n\nThere are " + (SentencesCount-1) + " sentences with an average length of " + Math.Round(AverageLength, 1, MidpointRounding.AwayFromZero) + " words.");
         }// end method 
         
 
