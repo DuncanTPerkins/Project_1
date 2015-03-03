@@ -119,6 +119,15 @@ namespace Project1
         {
             return !(word1.Equals(word2));
         }//End Method
+
+        /// <summary>
+        /// Overrides GetHashCode
+        /// </summary>
+        /// <returns>Has Code</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         #endregion
 
         /// <summary>

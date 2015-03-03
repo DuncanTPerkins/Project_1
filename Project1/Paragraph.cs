@@ -68,7 +68,7 @@ namespace Project1
         public List<string> GetParagraph { get { return _getparagraph; } set { _getparagraph = value; } }
 
         //Regex pattern used to determine the end of a paragraph
-        private static Regex EndParagraph = new Regex("(\\r\\n|\\r|\\n)");
+        private static Regex EndParagraph = new Regex(@"(\\r\\n|\\r|\\n)");
 
         //Regex pattern for checking the end of a sentence
         private static Regex EndSentence = new Regex("[?.!]");
