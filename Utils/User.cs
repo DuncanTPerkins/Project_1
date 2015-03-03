@@ -60,7 +60,7 @@ namespace Utils
                 else
                 {
                     throw new Exception(string.Format("An exception occurred in processing this user: \"{0}\" is not a valid telephone number.. Please Try Again.\n\n.", value));
-                }
+                }//End if
             }
         }
 
@@ -94,7 +94,7 @@ namespace Utils
            Name = "";
            _phoneNumber = "";
            _emailAddress = "";
-        }
+        }//End Constructor
 
         /// <summary>
         /// Parameterized constructor for the User class
@@ -107,7 +107,7 @@ namespace Utils
             Name = name;
             PreferredTelephoneNumber = phone;
             EmailAddress = email;
-        }
+        }//End Constructor
 
         
         /// <summary>
@@ -117,6 +117,6 @@ namespace Utils
         public override string ToString()
         {
             return string.Format("\n\nThe user's information:\nName: {0} \nEmail: {1}\nPhone: {2}\n\n", Name, _emailAddress, _phoneNumber);
-        }
+        }//End Method
     }
 }

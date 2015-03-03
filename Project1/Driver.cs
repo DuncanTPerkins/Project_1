@@ -34,6 +34,7 @@ namespace Project1
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Title = "Project 1";
             Console.Clear();
+
             Utility.Skip(1);
             Utility.WelcomeMessage("Computer Science 2210 Project 1", " Chance Reichenberg", " Duncan Perkins", " Chris Harris");
             Utility.Skip(1);
@@ -88,126 +89,135 @@ namespace Project1
                     //Case that displays Distinct Word and Words classes
                     case Choices.WORDS:
 
-                    Utility.Skip(2);
+                        Utility.Skip(2);
 
-                    //Output to ask for user input
-                    Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
-                    line = Console.ReadLine();
-
-                    //Takes user input and determines if it is valid or not
-                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
-                    {
-                        Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                        //Output to ask for user input
+                        Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
                         line = Console.ReadLine();
-                    }//End While
 
-                    //Decision statement to ask for a string input or to open a file
-                    if (textChoice == 0)
-                    {
-                        textData = new Text();
+                        //Takes user input and determines if it is valid or not
+                        while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                        {
+                            Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                            line = Console.ReadLine();
+                        }//End While
 
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter the string you wish to evaluate below.");
-                        inputText = Console.ReadLine();
-                        textData = new Text(inputText, 1);
-                    }//End if
+                        //Decision statement to ask for a string input or to open a file
+                        if (textChoice == 0)
+                        {
+                            textData = new Text();
 
-                    Utility.Skip(2);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter the string you wish to evaluate below.");
+                            inputText = Console.ReadLine();
+                            textData = new Text(inputText, 1);
+                        }//End if
 
-                    //Create the text object
-                    Words textWords = new Words(textData);
+                        Utility.Skip(2);
 
-                    //Outputs the words class
-                    textWords.Display();
+                        //Create the text object
+                        Words textWords = new Words(textData);
 
-                    Console.ReadKey();
-                    break;
+                        //Outputs the words class
+                        textWords.Display();
+
+                        Console.ReadKey();
+                        break;
 
                     case Choices.SENTENCES:
                     Utility.Skip(2);
 
-                    //Output to ask for user input
-                    Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
-                    line = Console.ReadLine();
-
-                    //Takes user input and determines if it is valid or not
-                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
-                    {
-                        Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                        //Output to ask for user input
+                        Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
                         line = Console.ReadLine();
-                    }//End While
 
-                    //Decision statement to ask for a string input or to open a file
-                    if (textChoice == 0)
-                    {
-                        textData = new Text();
+                        //Takes user input and determines if it is valid or not
+                        while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                        {
+                            Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                            line = Console.ReadLine();
+                        }//End While
 
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter the string you wish to evaluate below.");
-                        inputText = Console.ReadLine();
-                        textData = new Text(inputText, 0);
-                    }//End if
+                        //Decision statement to ask for a string input or to open a file
+                        if (textChoice == 0)
+                        {
+                            textData = new Text();
 
-                    Utility.Skip(2);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter the string you wish to evaluate below.");
+                            inputText = Console.ReadLine();
+                            textData = new Text(inputText, 0);
+                        }//End if
 
-                    //Creates the SentenceList passing in the text object
-                    SentenceList s = new SentenceList(textData);
+                        Utility.Skip(2);
 
-                    //Outputs the SentenceList and it's stats 
-                    s.Display();
+                        //Creates the SentenceList passing in the text object
+                        SentenceList s = new SentenceList(textData);
 
-                    Console.ReadKey();
-                    break;
+                        //Outputs the SentenceList and it's stats 
+                        s.Display();
+
+                        Console.ReadKey();
+                        break;
 
 
                     //Case that displays the paragraph and paragraphlist classes
                     case Choices.PARAGRAPHS:
-                    Utility.Skip(2);
+                        Utility.Skip(2);
 
-                    //Output to ask for user input
-                    Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
-                    line = Console.ReadLine();
-
-                    //Takes user input and determines if it is valid or not
-                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
-                    {
-                        Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                        //Output to ask for user input
+                        Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
                         line = Console.ReadLine();
-                    }//End While
 
-                    //Decision statement to ask for a string input or to open a file
-                    if (textChoice == 0)
-                    {
-                        textData = new Text();
+                        //Takes user input and determines if it is valid or not
+                        while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                        {
+                            Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                            line = Console.ReadLine();
+                        }//End While
 
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter the string you wish to evaluate below.");
-                        inputText = Console.ReadLine();
-                        textData = new Text(inputText, 1);
-                    }//End if
+                        //Decision statement to ask for a string input or to open a file
+                        if (textChoice == 0)
+                        {
+                            textData = new Text();
 
-                    Utility.Skip(2);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter the string you wish to evaluate below.");
+                            inputText = Console.ReadLine();
+                            textData = new Text(inputText, 1);
+                        }//End if
 
-                    //Creates the paragraph object passing in the text object
-                    Paragraph paragraph = new Paragraph(textData);
+                        Utility.Skip(2);
 
-                    //Outputs the paragraph and the paragraph stats
-                    Console.WriteLine(paragraph.ToString());
+                        //Creates the paragraph object passing in the text object
+                        Paragraph paragraph = new Paragraph(textData);
 
-                    Console.ReadKey();
-                    break;
+                        //Outputs the paragraph and the paragraph stats
+                        Console.WriteLine(paragraph.ToString());
+
+                        Console.ReadKey();
+                        break;
                 }  // end of switch
 
                 choice = (Choices)menu.GetChoice();
             }  // end of while
             Utility.GoodbyeMessage();
-            Console.WriteLine(person.ToString());
+
+            try
+            {
+                Console.WriteLine(person.ToString());
+            }
+            catch(NullReferenceException e) //Catches if the user did not try to re-enter their incorrect User Data
+            {
+                Console.WriteLine("You did not enter appropriate user data at the start of the program when prompted to try again.")
+            }
+            
             Console.ReadKey();
         }
     }

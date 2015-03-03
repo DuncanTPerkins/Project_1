@@ -29,7 +29,7 @@ namespace Utils
         /// <param name="author">The author of the program</param>
         public static void WelcomeMessage(string caption = "Computer Science 2210", string author = "", string author2 = "", string author3 = "")
         {
-            Console.WriteLine("{0}: {1},{2},{3}", caption, author, author2, author3);
+            Console.WriteLine("{0}:\n {1},{2},{3}", caption, author, author2, author3);
         }//End Method
 
         /// <summary>
