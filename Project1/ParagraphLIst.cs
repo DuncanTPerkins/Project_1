@@ -27,19 +27,19 @@ namespace Project1
         private int TotalParagraphs { get { return Paragraphs.Count; } }
 
         //Variable to hold the average length of the paragraphs in the list 
-        private double AverageLength 
-        { 
+        private double AverageLength
+        {
             get
-            { 
+            {
                 //Create and initialize the counter
-                int total = 0; 
+                int total = 0;
 
                 //Loops through the list of paragraphs
-                foreach (Paragraph p in Paragraphs) 
+                foreach (Paragraph p in Paragraphs)
                 {
 
                     //Adds the Words property of each paragraph to the counter
-                    total += p.Words; 
+                    total += p.Words;
 
                 }// end loop
 
@@ -49,13 +49,13 @@ namespace Project1
                 //Returns the average
                 return total;
 
-                } // end getter
+            } // end getter
         } // end property
 
         /// <summary>
         /// Default constructor for the class ParagraphList
         /// </summary>
-        public ParagraphList() 
+        public ParagraphList()
         {
 
             //Initialize the Paragraphs list to null
@@ -67,8 +67,7 @@ namespace Project1
         /// Paramaterized Constructor
         /// </summary>
         /// <param name="text">Text object being passed</param>
-        public ParagraphList(Text text) 
-        
+        public ParagraphList(Text text)
         {
             //Initialize the Paragraph object passing the Text object
             Paragraph p = new Paragraph(text);
@@ -82,8 +81,7 @@ namespace Project1
         /// Add a paragraph object to the list 
         /// </summary>
         /// <param name="p">Paragraph object passed in</param>
-        public void AddParagraph(Paragraph p) 
-        
+        public void AddParagraph(Paragraph p)
         {
             //Add paragraph object to the Paragraphs list 
             Paragraphs.Add(p);
@@ -94,8 +92,7 @@ namespace Project1
         /// Add a text object to be parsed into a Paragraph object, then added to the list
         /// </summary>
         /// <param name="t">Text object being passed</param>
-        public void AddTextObject(Text t) 
-        
+        public void AddTextObject(Text t)
         {
             //Initialize the Paragraph object passing the Text object
             Paragraph p = new Paragraph(t);
@@ -109,7 +106,7 @@ namespace Project1
         /// Format string for output in main driver class
         /// </summary>
         /// <returns>returns formatted string for console display</returns>
-        public string Display() 
+        public string Display()
         {
             //Create and initialize the counter
             int counter = 0;
@@ -118,7 +115,7 @@ namespace Project1
             string str = "Paragraphs found in the text:\n";
 
             //Loops through the list of paragraphs
-            foreach (Paragraph p in Paragraphs) 
+            foreach (Paragraph p in Paragraphs)
             {
 
                 //Appends the paragraph counter to the string str

@@ -15,8 +15,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1 {
-    class SentenceList {
+namespace Project1
+{
+    class SentenceList
+    {
         //List for holding the Sentence objects
         public List<Sentence> Sentences;
 
@@ -24,13 +26,16 @@ namespace Project1 {
         public int SentencesCount { get { return Sentences.Count; } }// end property
 
         //Average Number of Words per Sentence object
-        public double AverageLength {
-            get {
+        public double AverageLength
+        {
+            get
+            {
                 //initialize counter variable 
                 double count = 0;
 
                 //for each Sentence object s in Sentences List
-                foreach (Sentence s in Sentences) {
+                foreach (Sentence s in Sentences)
+                {
                     //Count = Count + the total number of tokens in Sentence s that are words
                     count += s.GetTotalLength();
                 }// end foreach loop
@@ -43,7 +48,8 @@ namespace Project1 {
         /// <summary>
         /// Default Constructor 
         /// </summary>
-        public SentenceList() {
+        public SentenceList()
+        {
             Sentences = null;
         }// end default constructor
 
@@ -51,7 +57,8 @@ namespace Project1 {
         /// parameterized constructor
         /// </summary>
         /// <param name="text">Text Object</param>
-        public SentenceList(Text text) {
+        public SentenceList(Text text)
+        {
             //return index of each sentence object
             int ReturnIndex = 0;
 
@@ -59,7 +66,8 @@ namespace Project1 {
             Sentences = new List<Sentence>();
 
             //while the return index is less than the total number of tokens in the Text object
-            while (ReturnIndex < text.Tokens.Count) {
+            while (ReturnIndex < text.Tokens.Count)
+            {
 
                 //create a new Sentence object, passing in the Text object and the current starting Index 
                 Sentence sentence = new Sentence(text, ReturnIndex);
@@ -75,7 +83,8 @@ namespace Project1 {
         /// <summary>
         /// print out the Sentence objects and their stats
         /// </summary>
-        public void Display() {
+        public void Display()
+        {
             //clear console 
             Console.Clear();
 
@@ -86,7 +95,8 @@ namespace Project1 {
             Console.WriteLine("Sentences Found in the Text:\n");
 
             //for every Sentence object in the Sentences List 
-            for (int i = 0; i < Sentences.Count - 1; i++) {
+            for (int i = 0; i < Sentences.Count - 1; i++)
+            {
 
                 //console theming 
                 Console.ForegroundColor = ConsoleColor.Red;

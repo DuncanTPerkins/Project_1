@@ -15,17 +15,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utils;
-namespace Project1 {
+namespace Project1
+{
     /// <summary>
     /// Driver class for Project 1 
     /// </summary>
-    class Driver {
+    class Driver
+    {
         /// <summary>
         /// Main method to demonstrate various classes and functionality of Project 1
         /// </summary>
         /// <param name="args"></param>
         [STAThread]
-        static void Main(string[] args) {
+        static void Main(string[] args)
+        {
 
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -42,8 +45,10 @@ namespace Project1 {
             User person = null;
             //Code runs while test is equal to y or Y
             //Allows continuous input of data
-            while (sentinelValue == "y" || sentinelValue == "Y") {
-                try {
+            while (sentinelValue == "y" || sentinelValue == "Y")
+            {
+                try
+                {
                     //Retrieve user information
                     Console.WriteLine("What is the name of the user?");
                     name = Console.ReadLine();
@@ -57,7 +62,8 @@ namespace Project1 {
 
 
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     Console.WriteLine(e.Message);
                 }
 
@@ -75,8 +81,10 @@ namespace Project1 {
             int textChoice;
             Choices choice = (Choices)menu.GetChoice();
 
-            while (choice != Choices.QUIT) {
-                switch (choice) {
+            while (choice != Choices.QUIT)
+            {
+                switch (choice)
+                {
                     //Case that displays Distinct Word and Words classes
                     case Choices.WORDS:
 
@@ -87,17 +95,20 @@ namespace Project1 {
                     line = Console.ReadLine();
 
                     //Takes user input and determines if it is valid or not
-                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1) {
+                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                    {
                         Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
                         line = Console.ReadLine();
                     }//End While
 
                     //Decision statement to ask for a string input or to open a file
-                    if (textChoice == 0) {
+                    if (textChoice == 0)
+                    {
                         textData = new Text();
 
                     }
-                    else {
+                    else
+                    {
                         Console.WriteLine("Please enter the string you wish to evaluate below.");
                         inputText = Console.ReadLine();
                         textData = new Text(inputText, 1);
@@ -122,17 +133,20 @@ namespace Project1 {
                     line = Console.ReadLine();
 
                     //Takes user input and determines if it is valid or not
-                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1) {
+                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                    {
                         Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
                         line = Console.ReadLine();
                     }//End While
 
                     //Decision statement to ask for a string input or to open a file
-                    if (textChoice == 0) {
+                    if (textChoice == 0)
+                    {
                         textData = new Text();
 
                     }
-                    else {
+                    else
+                    {
                         Console.WriteLine("Please enter the string you wish to evaluate below.");
                         inputText = Console.ReadLine();
                         textData = new Text(inputText, 0);
@@ -159,17 +173,20 @@ namespace Project1 {
                     line = Console.ReadLine();
 
                     //Takes user input and determines if it is valid or not
-                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1) {
+                    while (!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                    {
                         Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
                         line = Console.ReadLine();
                     }//End While
 
                     //Decision statement to ask for a string input or to open a file
-                    if (textChoice == 0) {
+                    if (textChoice == 0)
+                    {
                         textData = new Text();
 
                     }
-                    else {
+                    else
+                    {
                         Console.WriteLine("Please enter the string you wish to evaluate below.");
                         inputText = Console.ReadLine();
                         textData = new Text(inputText, 1);

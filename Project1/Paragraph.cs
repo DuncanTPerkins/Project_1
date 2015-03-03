@@ -62,7 +62,7 @@ namespace Project1
         //Variables for the last token
         private string _lastToken;
         public string LastToken { get { return _lastToken; } set { _lastToken = value; } }
-        
+
         //Variables for the list that will store the paragraphs
         private List<string> _getparagraph;
         public List<string> GetParagraph { get { return _getparagraph; } set { _getparagraph = value; } }
@@ -114,7 +114,7 @@ namespace Project1
             FirstToken = GetParagraph[0];
 
             //int counter = 0;
-            for(int i =0; i < GetParagraph.Count; i++) 
+            for (int i = 0; i < GetParagraph.Count; i++)
             {
 
                 //Checks for the end of the paragraph using two new line characters, two carriage return characters or the end of the list
@@ -145,14 +145,14 @@ namespace Project1
         public int GetStats()
         {
             int counter = 0;
-            
+
             //Loops through the list checking for punctuation marks
-            foreach(string s in GetParagraph)
+            foreach (string s in GetParagraph)
             {
                 //If it's the end of a sentence
                 match = EndSentence.Match(s);
 
-                if (match.Success) 
+                if (match.Success)
                 {
 
                     counter++;
