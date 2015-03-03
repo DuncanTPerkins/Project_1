@@ -17,7 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace Classwork2
+namespace Utils
 {
     /// <summary>
     /// Class to hold user information and check that information for accuracy using Regex.

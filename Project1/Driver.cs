@@ -29,9 +29,48 @@ namespace Project1
         [STAThread]
         static void Main(string[] args)
         {
+            
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Title = "Project 1";
+            Console.Clear();
+            Utility.Skip(1);
+            Utility.WelcomeMessage("Computer Science 2210 Project 1", "Chance Reichenberg", "Duncan Perkins", "Chris Harris");
+            Utility.Skip(1);
+            //Variables to temporarily hold user information to be passed
+            string name, email, phone;
+
+            //Variable used to end user input
+            string sentinelValue = "y";
+            User person = null;
+            //Code runs while test is equal to y or Y
+            //Allows continuous input of data
+            while (sentinelValue == "y" || sentinelValue == "Y")
+            {
+                try
+                {
+                    //Retrieve user information
+                    Console.WriteLine("What is the name of the user?");
+                    name = Console.ReadLine();
+                    Console.WriteLine("What is {0}'s phone number?", name);
+                    phone = Console.ReadLine();
+                    Console.WriteLine("What is {0}'s email address?", name);
+                    email = Console.ReadLine();
+
+                    //User object created using values user entered.
+                    person = new User(name, phone, email);
+
+                   
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+                Console.WriteLine("Enter 'Y' to continue entering data.");
+                sentinelValue = Console.ReadLine();
+                Console.WriteLine("\n\n");
+            }//End While
 
             Text textData;
             Menu menu = new Menu("Project 1 Options");
@@ -92,6 +131,9 @@ namespace Project1
 
                 choice = (Choices)menu.GetChoice();
             }  // end of while
+            Utility.GoodbyeMessage();
+            Console.WriteLine(person.ToString());
+            Console.ReadKey();
 
             //Console.WriteLine("Input Text to be Parsed");
             //string input = Console.ReadLine();
