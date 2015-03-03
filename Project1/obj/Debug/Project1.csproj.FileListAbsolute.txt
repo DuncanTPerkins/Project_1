@@ -41,3 +41,11 @@ C:\Users\Chris\Documents\Project_1\Project1\bin\Debug\Project1.pdb
 C:\Users\Chris\Documents\Project_1\Project1\bin\Debug\Utils.dll
 C:\Users\Chris\Documents\Project_1\Project1\bin\Debug\Utils.pdb
 C:\Users\Chris\Documents\Project_1\Project1\obj\Debug\Project1.csprojResolveAssemblyReference.cache
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\bin\Debug\Project1.exe.config
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\obj\Debug\Project1.exe
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\obj\Debug\Project1.pdb
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\bin\Debug\Project1.exe
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\bin\Debug\Project1.pdb
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\bin\Debug\Utils.dll
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\bin\Debug\Utils.pdb
+C:\Users\Chance\Documents\Visual Studio 2013\Projects\Project_1\Project1\obj\Debug\Project1.csprojResolveAssemblyReference.cache

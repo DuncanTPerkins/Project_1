@@ -103,7 +103,18 @@ namespace Utils
                     subStringToAdd = line.Substring(endingIndex, 1);
                     if (!String.IsNullOrWhiteSpace(subStringToAdd) && !String.IsNullOrEmpty(subStringToAdd))
                     {
-                        tokenizedLine.Add(subStringToAdd);
+                        if (subStringToAdd == "\\")
+                        {
+                            //If what it found was an escape character add the next character
+                            tokenizedLine.Add(subStringToAdd + line.Substring(endingIndex + 1, 1)); 
+
+                            //Remove the characters associated with the newline, return, and tab characters
+                            line = line.Remove(endingIndex + 1, 1);
+                        }
+                        else
+                        {
+                            tokenizedLine.Add(subStringToAdd);
+                        }
                     }//End If
 
                     startingIndex = endingIndex + 1;
@@ -115,19 +126,6 @@ namespace Utils
                 }//End if
 
             }//End While
-
-            //Takes care of newline, tab, and return characters.
-            for (int i = 0; i < tokenizedLine.Count; i++)
-            {
-                if (tokenizedLine[i] == "n" || tokenizedLine[i] == "r" || tokenizedLine[i] == "t")
-                {
-                    tokenizedLine[i] = '\\' + tokenizedLine[i];
-                    tokenizedLine.Remove(tokenizedLine[i - 1]);
-                }//End if
-
-
-            }//End For
-
             return tokenizedLine;
         }//End Tokenize
     }
