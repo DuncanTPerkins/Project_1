@@ -4,7 +4,7 @@
 //	File Name:		Driver.cs
 //	Description:    ?????
 //	Course:			CSCI 2210-001 - Data Structures
-//	Authors:		Chance Reichenberg, reichenberg@etsu.edu, Duncan Perkins, perkinsdt@goldmail.etsu.edu,  Department of Computing, East Tennessee State University
+//	Authors:		Chance Reichenberg, reichenberg@etsu.edu, Duncan Perkins, perkinsdt@goldmail.etsu.edu, Chris Harris, harriscr1@goldmail.etsu.edu  Department of Computing, East Tennessee State University
 //	Created:	    Thursday, February 5, 2015
 //	Copyright:		Chance Reichenberg, Duncan Perkins 2015
 //
@@ -90,15 +90,18 @@ namespace Project1
 
                         Utility.Skip(2);
 
+                        //Output to ask for user input
                         Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
                         line = Console.ReadLine();
 
+                        //Takes user input and determines if it is valid or not
                         while(!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
                         {
                             Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
                             line = Console.ReadLine();
                         }//End While
 
+                        //Decision statement to ask for a string input or to open a file
                         if (textChoice == 0)
                         {
                             textData = new Text();
@@ -113,7 +116,10 @@ namespace Project1
 
                         Utility.Skip(2);
 
+                        //Create the text object
                         Words textWords = new Words(textData);
+
+                        //Outputs the words class
                         textWords.Display();
 
                         Console.ReadKey();
@@ -123,18 +129,23 @@ namespace Project1
                         Console.WriteLine("You selected Close");
                         Console.ReadKey();
                         break;
+
+                    //Case that displays the paragraph and paragraphlist classes
                     case Choices.PARAGRAPHS:
                         Utility.Skip(2);
 
+                        //Output to ask for user input
                         Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
                         line = Console.ReadLine();
 
+                        //Takes user input and determines if it is valid or not
                         while(!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
                         {
                             Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
                             line = Console.ReadLine();
                         }//End While
 
+                        //Decision statement to ask for a string input or to open a file
                         if (textChoice == 0)
                         {
                             textData = new Text();
@@ -149,7 +160,10 @@ namespace Project1
 
                         Utility.Skip(2);
 
+                        //Creates the paragraph object passing in the text object
                         Paragraph paragraph = new Paragraph(textData);
+
+                        //Outputs the paragraph and the paragraph stats
                         Console.WriteLine(paragraph.ToString());
 
                         Console.ReadKey();
