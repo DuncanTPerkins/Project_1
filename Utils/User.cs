@@ -27,7 +27,7 @@ namespace Utils
         private Regex emailPattern = new Regex(@"([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})");
         private Regex phonePattern = new Regex(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}");
 
-        private string _name;
+        private string _name;           //private variable to hold the user's Name
         private string _phoneNumber;    //private variable to hold the user's Phone Number
         private string _emailAddress;   //private variable to hold the user's Email Address
 
