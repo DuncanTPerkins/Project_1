@@ -210,7 +210,7 @@ namespace Project1
             }//end foreach
 
             //append Word Count to String 
-            str+="\n\nTotal Words: " + WordCount + "             " + "Average Word Length: " + AverageLength;
+            str+="\n\nTotal Words: " + WordCount + "             " + "Average Word Length: " + AverageLength +"\n";
 
             //trim leading and trailing white spaces when returning Sentence
             return str;

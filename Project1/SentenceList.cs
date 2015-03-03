@@ -36,7 +36,7 @@ namespace Project1
                     //Count = Count + the total number of tokens in Sentence s that are words
                     count += s.GetTotalLength();
                 }// end foreach loop
-                return count;
+                return count/=SentencesCount;
             }// end getter 
             
         }// end property
@@ -81,7 +81,7 @@ namespace Project1
             Console.WriteLine("Sentences Found in the Text:\n");
 
             //for every Sentence object in the Sentences List 
-            for (int i = 0; i < Sentences.Count; i++) {
+            for (int i = 0; i < Sentences.Count-1; i++) {
 
                 //Append the Sentence number 
                 Console.WriteLine("Sentence " + (i + 1) + "\n");
@@ -89,6 +89,8 @@ namespace Project1
                 //Append the ToString method of the current Sentence object
                 Console.WriteLine(Sentences[i].ToString());
             } // end for loop
+            //Output total ending data
+            Console.WriteLine("There are " + SentencesCount + " sentences with an average length of " + AverageLength + " words.");
         }// end method 
         
 

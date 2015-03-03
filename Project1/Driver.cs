@@ -35,7 +35,7 @@ namespace Project1
             Console.Title = "Project 1";
             Console.Clear();
             Utility.Skip(1);
-            Utility.WelcomeMessage("Computer Science 2210 Project 1", "Chance Reichenberg", "Duncan Perkins", "Chris Harris");
+            Utility.WelcomeMessage("Computer Science 2210 Project 1", " Chance Reichenberg", " Duncan Perkins", " Chris Harris");
             Utility.Skip(1);
             //Variables to temporarily hold user information to be passed
             string name, email, phone;
@@ -126,6 +126,44 @@ namespace Project1
                         break;
 
                     case Choices.SENTENCES:
+                        Utility.Skip(2);
+
+                        //Output to ask for user input
+                        Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
+                        line = Console.ReadLine();
+
+                        //Takes user input and determines if it is valid or not
+                        while(!Int32.TryParse(line, out textChoice) || Int32.Parse(line) < 0 || Int32.Parse(line) > 1)
+                        {
+                            Console.WriteLine("You did not enter a '0' or '1'. Try Again.");
+                            line = Console.ReadLine();
+                        }//End While
+
+                        //Decision statement to ask for a string input or to open a file
+                        if (textChoice == 0)
+                        {
+                            textData = new Text();
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter the string you wish to evaluate below.");
+                            inputText = Console.ReadLine();
+                            textData = new Text(inputText, 0);
+                        }//End if
+
+                        Utility.Skip(2);
+
+                        //Creates the paragraph object passing in the text object
+                        SentenceList s = new SentenceList(textData);
+
+                        //Outputs the SentenceList and it's stats 
+                        s.Display();
+
+                        Console.ReadKey();
+                        break;
+
+                    
                         Console.WriteLine("You selected Close");
                         Console.ReadKey();
                         break;
