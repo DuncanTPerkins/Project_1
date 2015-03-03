@@ -154,7 +154,7 @@ namespace Project1
 
                         Utility.Skip(2);
 
-                        //Creates the paragraph object passing in the text object
+                        //Creates the SentenceList passing in the text object
                         SentenceList s = new SentenceList(textData);
 
                         //Outputs the SentenceList and it's stats 
@@ -163,10 +163,6 @@ namespace Project1
                         Console.ReadKey();
                         break;
 
-                    
-                        Console.WriteLine("You selected Close");
-                        Console.ReadKey();
-                        break;
 
                     //Case that displays the paragraph and paragraphlist classes
                     case Choices.PARAGRAPHS:
@@ -213,18 +209,6 @@ namespace Project1
             Utility.GoodbyeMessage();
             Console.WriteLine(person.ToString());
             Console.ReadKey();
-
-            //Console.WriteLine("Input Text to be Parsed");
-            //string input = Console.ReadLine();
-            //Text t = new Text(input, 1);
-            //SentenceList s = new SentenceList(t);
-            //s.Display();
-
-            //Text test = new Text();
-            //test.GetTokens();
-            //Paragraph p = new Paragraph(test);
-            //Console.WriteLine(p.ToString());
-            //Console.ReadLine();
         }
         }
     }

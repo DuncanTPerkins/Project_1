@@ -28,7 +28,7 @@ namespace Project1
            get 
                 {
                     int count = 0;
-                    foreach (string s in SentenceList) {
+                    foreach (string s in WordList) {
                         match = isWord.Match(s);
                         if (match.Success) {
                             count++;
@@ -52,7 +52,7 @@ namespace Project1
         private string _lasttoken;
 
         //public and private variables for storage of the sentence as we manipulate it based upon our parameters
-        public List<string> SentenceList { get { return _sentencelist; } set { _sentencelist = value; } }
+        public List<string> WordList { get { return _sentencelist; } set { _sentencelist = value; } }
         private List<string> _sentencelist;
 
         //private counter for finding the location of the first sentence-ending token (.!?)
@@ -81,7 +81,7 @@ namespace Project1
             AverageLength = 0;
             FirstToken = "";
             LastToken = "";
-            SentenceList = null;
+            WordList = null;
             _counter = 0;
         } //end constructor
 
@@ -93,17 +93,17 @@ namespace Project1
         public Sentence(Text text, int StartingToken)
         {
                 //retrieve tokens from text class 
-                SentenceList = text.Tokens;
+                WordList = text.Tokens;
                 //get length of current slist 
-                int ListSize = (SentenceList.Count);
+                int ListSize = (WordList.Count);
                 //subtract the starting position of the sentence that was passed to us 
                 int NewListSize = ((ListSize) - (StartingToken));
                 //Cut the beginning of the token list to the StartingToken index
-                SentenceList = SentenceList.GetRange(StartingToken, NewListSize);
+                WordList = WordList.GetRange(StartingToken, NewListSize);
                 //initialize counter
                 _counter = 0;
                 //loop for finding sentencing-ending tokens (.!?)
-                foreach (string s in SentenceList)
+                foreach (string s in WordList)
                 {
                     //Compare the current index list item to the Regular Expression
                     match = EndSentence.Match(s);
@@ -123,7 +123,7 @@ namespace Project1
                 } //end foreach
 
                 //trim the end of our sentence list to the index of the first sentence-ending token (.?!)
-                SentenceList = SentenceList.GetRange(0, _counter);
+                WordList = WordList.GetRange(0, _counter);
                 //assign the counter of the loop to the return index's value 
                 ReturnIndex = _counter;
                 //Get Word Count, Average Length, and First and Last tokens
@@ -140,7 +140,7 @@ namespace Project1
         public int GetTotalLength() {
             int count = 0;
             //for each token in the sentence, add the length of the token to the variable count, then return it 
-            foreach (string s in SentenceList) {
+            foreach (string s in WordList) {
                 match = isWord.Match(s);
                 if (match.Success) {
                     count += s.Length;
@@ -157,9 +157,9 @@ namespace Project1
             //Get average from GetAverage method
             AverageLength = GetAverage();
             //token at 0 index is first token
-            FirstToken = SentenceList[0];
+            FirstToken = WordList[0];
             //token at max index is last token
-            LastToken = (SentenceList[SentenceList.Count-1]);
+            LastToken = (WordList[WordList.Count-1]);
         }//end method 
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace Project1
         {   //initialize average to 0
             double average = 0;
             //for every token in the sentence, add the length of the token to average...
-            foreach (string s in SentenceList)
+            foreach (string s in WordList)
             {
                 match = isWord.Match(s);
                 if (match.Success) {
@@ -194,7 +194,7 @@ namespace Project1
             //initialize string to empty
             string str = "";
             //for every token in the Sentence 
-            foreach (string s in SentenceList)
+            foreach (string s in WordList)
             {
                 //Compare token against Regular Expression to check if it's a Letter or Number
                 match = isLetter.Match(s);
@@ -218,7 +218,7 @@ namespace Project1
         public List<string> ReturnSentence()
         {
 
-            return SentenceList;
+            return WordList;
         }
     } //end class
 } //end namespace

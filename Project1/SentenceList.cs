@@ -36,7 +36,8 @@ namespace Project1
                     //Count = Count + the total number of tokens in Sentence s that are words
                     count += s.GetTotalLength();
                 }// end foreach loop
-                return count/=SentencesCount;
+                count/=SentencesCount;
+                return count;
             }// end getter 
             
         }// end property
@@ -61,7 +62,7 @@ namespace Project1
             Sentences = new List<Sentence>();
 
             //while the return index is less than the total number of tokens in the Text object
-            while (ReturnIndex < text.Tokens.Count) {
+            while (ReturnIndex+1 < text.Tokens.Count) {
 
                 //create a new Sentence object, passing in the Text object and the current starting Index 
                 Sentence sentence = new Sentence(text, ReturnIndex);
@@ -90,7 +91,7 @@ namespace Project1
                 Console.WriteLine(Sentences[i].ToString());
             } // end for loop
             //Output total ending data
-            Console.WriteLine("There are " + SentencesCount + " sentences with an average length of " + AverageLength + " words.");
+            Console.WriteLine("There are " + (SentencesCount-1) + " sentences with an average length of " + AverageLength + " words.");
         }// end method 
         
 
