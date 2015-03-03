@@ -18,11 +18,9 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using Utils;
-namespace Project1
-{
-    
-    class Text
-    {
+namespace Project1 {
+
+    class Text {
         //Original string to be tokenized
         public string Original { get; set; }
         //StreamReader for reading from file 
@@ -39,8 +37,7 @@ namespace Project1
         /// <summary>
         /// Default constructor
         /// </summary>
-        public Text()
-        {
+        public Text() {
             Original = "";
             GetFile();
             GetTokens();
@@ -51,10 +48,9 @@ namespace Project1
         /// </summary>
         /// <param name="input">path to file the user wants tokenized, or a string to be tokenized</param>
         /// <param name="context">tells us the context of what string input contains</param>
-        public Text(string input, int context)
-        {
+        public Text(string input, int context) {
             //if the context is 0, string input is the directory to a text file 
-            if (context==0) {
+            if (context == 0) {
                 Original = "";
                 _fileName = input;
             }
@@ -68,28 +64,23 @@ namespace Project1
         /// <summary>
         /// Gets the txt file from the user, then breaks it into tokens using the tokenize method 
         /// </summary>
-        public void GetTokens()
-        {
+        public void GetTokens() {
 
             //reading from file 
-            try
-            {
+            try {
                 //initialize the StreamReader with the directory from the user 
-                using (reader = new StreamReader(_fileName))
-                {
+                using (reader = new StreamReader(_fileName)) {
                     //variable for single line of input from file 
                     string line;
                     //while we aren't at the end of the file, copy the next line from the file to line
-                    while ((line = reader.ReadLine()) != null)
-                    {
+                    while ((line = reader.ReadLine()) != null) {
                         //append the current line to the "Original" String 
                         Original += line;
                     }
                 }
             }
             //in case anything goes wrong 
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 Console.WriteLine(e);
             }
             //Tokenize the string into a list of tokens
@@ -99,13 +90,11 @@ namespace Project1
         /// <summary>
         /// Method for opening file dialog and getting file path from user
         /// </summary>
-        public void GetFile()
-        {
+        public void GetFile() {
             //Open in the Resources Folder
             _OpenDlg.InitialDirectory = Application.StartupPath + @"..\..\Resources";
             //If the user opened a file, copy the directory to _fileName 
-            if (DialogResult.Cancel != _OpenDlg.ShowDialog())
-            {
+            if (DialogResult.Cancel != _OpenDlg.ShowDialog()) {
                 _fileName = _OpenDlg.FileName;
 
             }

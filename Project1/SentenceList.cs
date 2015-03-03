@@ -15,10 +15,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1
-{
-    class SentenceList
-    {
+namespace Project1 {
+    class SentenceList {
         //List for holding the Sentence objects
         public List<Sentence> Sentences;
 
@@ -36,17 +34,16 @@ namespace Project1
                     //Count = Count + the total number of tokens in Sentence s that are words
                     count += s.GetTotalLength();
                 }// end foreach loop
-                count/=(SentencesCount-1);
+                count /= (SentencesCount - 1);
                 return count;
             }// end getter 
-            
+
         }// end property
 
         /// <summary>
         /// Default Constructor 
         /// </summary>
-        public SentenceList()
-        {
+        public SentenceList() {
             Sentences = null;
         }// end default constructor
 
@@ -89,7 +86,7 @@ namespace Project1
             Console.WriteLine("Sentences Found in the Text:\n");
 
             //for every Sentence object in the Sentences List 
-            for (int i = 0; i < Sentences.Count-1; i++) {
+            for (int i = 0; i < Sentences.Count - 1; i++) {
 
                 //console theming 
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -103,10 +100,10 @@ namespace Project1
             } // end for loop
             Console.ForegroundColor = ConsoleColor.Red;
             //Output total ending data
-            Console.WriteLine("\n\nThere are " + (SentencesCount-1) + " sentences with an average length of " + Math.Round(AverageLength, 1, MidpointRounding.AwayFromZero) + " words.");
+            Console.WriteLine("\n\nThere are " + (SentencesCount - 1) + " sentences with an average length of " + Math.Round(AverageLength, 1, MidpointRounding.AwayFromZero) + " words.");
         }// end method 
-        
+
 
     }// end class
-    
+
 }// end namespace
