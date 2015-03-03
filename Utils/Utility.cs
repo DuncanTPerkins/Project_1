@@ -83,7 +83,7 @@ namespace Utils
             int startingIndex = 0;
             string subStringToAdd;
 
-            
+            //Loops through the String until the ending index reaches the end meaning it found no delims
             while (endingIndex != -1)
             {
                 endingIndex = line.IndexOfAny(delimArray, startingIndex);   //Finds the index of the next delimeter
@@ -116,18 +116,18 @@ namespace Utils
 
             }//End While
 
+            //Takes care of newline, tab, and return characters.
             for (int i = 0; i < tokenizedLine.Count; i++)
             {
-                if (tokenizedLine[i] == "n" || tokenizedLine[i] == "r")
+                if (tokenizedLine[i] == "n" || tokenizedLine[i] == "r" || tokenizedLine[i] == "t")
                 {
-                    tokenizedLine[i] = @"\" + tokenizedLine[i];
+                    tokenizedLine[i] = '\\' + tokenizedLine[i];
                     tokenizedLine.Remove(tokenizedLine[i - 1]);
                 }//End if
 
+
             }//End For
 
-
-            //Linq statement used to omit blank and empty strings from the returned list
             return tokenizedLine;
         }//End Tokenize
     }

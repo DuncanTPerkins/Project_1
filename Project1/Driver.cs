@@ -77,11 +77,6 @@ namespace Project1
                         Words textWords = new Words(textData);
                         textWords.Display();
 
-                        foreach(var item in textData.Tokens)
-                        {
-                            Console.WriteLine(item);
-                        }
-
                         Console.ReadKey();
                         break;
 
