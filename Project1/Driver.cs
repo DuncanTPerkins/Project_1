@@ -32,7 +32,7 @@ namespace Project1
 
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Title = "Project 1";
+            Console.Title = "CSCI2210 - Project 1 by Chance Reichenberg, Duncan Perkins and Chris Harris";
             Console.Clear();
 
             Utility.Skip(1);
@@ -53,9 +53,9 @@ namespace Project1
                     //Retrieve user information
                     Console.WriteLine("What is the name of the user?");
                     name = Console.ReadLine();
-                    Console.WriteLine("What is {0}'s phone number?", name);
+                    Console.WriteLine("\nWhat is {0}'s phone number?", name);
                     phone = Console.ReadLine();
-                    Console.WriteLine("What is {0}'s email address?", name);
+                    Console.WriteLine("\nWhat is {0}'s email address?", name);
                     email = Console.ReadLine();
 
                     //User object created using values user entered.
@@ -68,7 +68,7 @@ namespace Project1
                     Console.WriteLine(e.Message);
                 }
 
-                Console.WriteLine("Enter 'Y' to restart entering user data, or press enter to continue.");
+                Console.WriteLine("\nEnter 'Y' to restart entering user data, or press enter to continue.");
                 sentinelValue = Console.ReadLine();
                 Console.WriteLine("\n\n");
             }//End While
@@ -92,7 +92,7 @@ namespace Project1
                         Utility.Skip(2);
 
                         //Output to ask for user input
-                        Console.WriteLine(" Enter a '0' if you wish to open a file.\n Enter '1' if you wish to enter a text string.");
+                        Console.WriteLine("\nEnter a '0' if you wish to open a file.\nEnter '1' if you wish to enter a text string.");
                         line = Console.ReadLine();
 
                         //Takes user input and determines if it is valid or not

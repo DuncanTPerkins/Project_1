@@ -130,7 +130,7 @@ namespace Project1
             } // end loop
 
             //Appends the number of paragraphs and the average to the string str
-            str += "\n\nThere are " + TotalParagraphs + " paragraphs." + "          " + "The average number of words in the paragraphs is: " + AverageLength + "\n";
+            str += "\n\nThere are " + TotalParagraphs + " paragraphs. The average number of words in the paragraphs is: " + AverageLength + "\n";
 
             //Returns the string str
             return str;
