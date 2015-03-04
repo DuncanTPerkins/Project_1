@@ -70,6 +70,7 @@ namespace Project1
         /// <param name="text">Text object being passed</param>
         public ParagraphList(Text text)
         {
+
             //Initialize the Paragraph object passing the Text object
             Paragraph p = new Paragraph(text);
 
@@ -114,19 +115,16 @@ namespace Project1
 
             //Create and initialize the string str
             string str = "Paragraphs found in the text:\n";
-            string paragraphNumber = "\nParagraph ";
-            string paragraph = "";
-            string stats = "";
 
             //Loops through the list of paragraphs
             foreach (Paragraph p in Paragraphs)
             {
 
                 //Appends the paragraph counter to the string str
-                paragraphNumber += (counter + 1) + ".\n\n";
+                str += "\nParagraph " + (counter + 1) + ".\n\n";
 
                 //Appends the paragraphs overriding ToString method to the string str
-                paragraph += Utility.FormatText(p.ToString(), 5, 40) + "\n";
+                str += p.ToString() + "\n";
 
                 //Increments the counter by 1
                 counter++;
@@ -134,10 +132,10 @@ namespace Project1
             } // end loop
 
             //Appends the number of paragraphs and the average to the string str
-            stats += "\n\nThere are " + TotalParagraphs + " paragraphs. The average number of words in the paragraphs is: " + AverageLength + "\n";
+            str += "\n\nThere are " + TotalParagraphs + " paragraphs. The average number of words in the paragraphs is: " + AverageLength + "\n";
 
             //Returns the string str
-            return str + paragraphNumber + Utility.FormatText(paragraph, 5, 40) + stats;
+            return str;
 
         } // end method
     } // end class
