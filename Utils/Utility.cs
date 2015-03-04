@@ -29,16 +29,22 @@ namespace Utils
         /// <param name="author">The author of the program</param>
         public static void WelcomeMessage(string caption = "Computer Science 2210", string author = "", string author2 = "", string author3 = "")
         {
-            Console.WriteLine("{0}:\n {1},{2},{3}", caption, author, author2, author3);
+            Skip(4);
+            Console.WriteLine("\t{0}:\n\t\tBy: {1},{2},{3}", caption, author, author2, author3);
+            Skip(1);
+            Console.WriteLine("\tPress Enter to continue.");
+            Console.ReadLine();
+            Console.Clear();
         }//End Method
 
         /// <summary>
         /// A Goodbye message that can be displayed
         /// </summary>
         /// <param name="msg">The message to be displayed</param>
-        public static void GoodbyeMessage(string msg = "Thank you for using this program.")
+        public static void GoodbyeMessage(string msg = "Thank you for using this program!")
         {
-            Console.WriteLine(msg);
+            Skip(3);
+            Console.WriteLine(String.Format("\t\t{0}", msg));
         }//End Method
 
         /// <summary>

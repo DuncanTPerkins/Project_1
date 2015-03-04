@@ -35,19 +35,38 @@ namespace Project1
             Console.Title = "CSCI2210 - Project 1 by Chance Reichenberg, Duncan Perkins and Chris Harris";
             Console.Clear();
 
-            Utility.Skip(1);
             Utility.WelcomeMessage("Computer Science 2210 Project 1", " Chance Reichenberg", " Duncan Perkins", " Chris Harris");
-            Utility.Skip(1);
             //Variables to temporarily hold user information to be passed
             string name, email, phone;
 
             //Variable used to end user input
-            string sentinelValue = "y";
+            bool isValid = true;
             User person = null;
-            //Code runs while test is equal to y or Y
-            //Allows continuous input of data
-            while (sentinelValue == "y" || sentinelValue == "Y")
+
+            try
             {
+
+                Console.WriteLine("What is the name of the user?");
+                name = Console.ReadLine();
+                Console.WriteLine("\nWhat is {0}'s phone number?", name);
+                phone = Console.ReadLine();
+                Console.WriteLine("\nWhat is {0}'s email address?", name);
+                email = Console.ReadLine();
+
+                //User object created using values user entered.
+                person = new User(name, phone, email);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                isValid = false;
+                Console.WriteLine("\nThe Data you entered was not valid. Try Again.");
+                Console.WriteLine("\n\n");
+            }
+            while (!isValid)
+            {
+                isValid = true;
                 try
                 {
                     //Retrieve user information
@@ -66,11 +85,12 @@ namespace Project1
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
+                    isValid = false;
+                    Console.WriteLine("\nThe Data you entered was not valid. Try Again.");
+                    Console.WriteLine("\n\n");
                 }
 
-                Console.WriteLine("\nEnter 'Y' to restart entering user data, or press enter to continue.");
-                sentinelValue = Console.ReadLine();
-                Console.WriteLine("\n\n");
+
             }//End While
 
             Text textData;
@@ -207,7 +227,6 @@ namespace Project1
 
                 choice = (Choices)menu.GetChoice();
             }  // end of while
-            Utility.GoodbyeMessage();
 
             try
             {
@@ -217,7 +236,7 @@ namespace Project1
             {
                 Console.WriteLine("You did not enter appropriate user data at the start of the program when prompted to try again.");
             }
-            
+            Utility.GoodbyeMessage();
             Console.ReadKey();
         }
     }
