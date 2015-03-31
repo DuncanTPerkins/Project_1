@@ -20,7 +20,9 @@ using System.Windows.Forms;
 using Utils;
 namespace Project1
 {
-
+    /// <summary>
+    /// Text object used to work with text file 
+    /// </summary>
     class Text
     {
         //Original string to be tokenized
@@ -30,7 +32,7 @@ namespace Project1
         //List of Tokenized tokens 
         public List<String> Tokens { get; set; }
         //filename of txt file to read from
-        private string _fileName;
+        private string _fileName = null;
         //delimeters to tokenize against 
         String delims = @"?!,';:*(){}+-\/. ";
         //file dialog for getting txt file 
@@ -92,7 +94,7 @@ namespace Project1
             //in case anything goes wrong 
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
             }
             //Tokenize the string into a list of tokens
             Tokens = Utility.Tokenize(Original, delims);
@@ -104,7 +106,7 @@ namespace Project1
         public void GetFile()
         {
             //Open in the Resources Folder
-            _OpenDlg.InitialDirectory = Application.StartupPath + @"..\..\Resources";
+            _OpenDlg.InitialDirectory = Application.StartupPath;
             //If the user opened a file, copy the directory to _fileName 
             if (DialogResult.Cancel != _OpenDlg.ShowDialog())
             {

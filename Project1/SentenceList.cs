@@ -17,6 +17,9 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
+    /// <summary>
+    /// List class for holding sentence objects
+    /// </summary>
     class SentenceList
     {
         //List for holding the Sentence objects

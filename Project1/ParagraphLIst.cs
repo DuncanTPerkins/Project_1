@@ -19,6 +19,9 @@ using Utils;
 
 namespace Project1
 {
+    /// <summary>
+    /// List class to hold paragraph objects
+    /// </summary>
     class ParagraphList
     {
         //The list that holds the paragraphs
