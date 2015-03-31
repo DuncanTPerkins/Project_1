@@ -83,56 +83,146 @@ namespace Utils
         {
             List<string> tokenizedLine = new List<string>();
 
+            string work = line;
 
             char[] delimArray = delims.ToCharArray();
+            List<char> temp = delimArray.ToList();
             int endingIndex = 0;
-            int startingIndex = 0;
             string subStringToAdd;
 
-            //Loops through the String until the ending index reaches the end meaning it found no delims
-            while (endingIndex != -1)
+            //Loops through until work is empty
+            while (!String.IsNullOrEmpty(work))
             {
-                endingIndex = line.IndexOfAny(delimArray, startingIndex);   //Finds the index of the next delimeter
+                int tempIndex1 = work.IndexOfAny(delimArray);
+                int tempIndex2 = work.IndexOf("\r\n");
+
+                //Gets the closest index of the delimiter that is found
+                if (tempIndex1 == -1)
+                {
+                    endingIndex = tempIndex2;
+                }
+                else if (tempIndex2 == -1)
+                {
+                    endingIndex = tempIndex1;
+                }
+                else
+                    endingIndex = (tempIndex1 < tempIndex2) ? tempIndex1 : tempIndex2;  //Ternary expression to retreive lowest index if they arent both -1
+                //End If
+
 
                 if (endingIndex != -1)
                 {
-                    int stringLength = endingIndex - startingIndex;         //Gets the length of the string to be cut
+                    subStringToAdd = work.Substring(0, endingIndex);
 
-                    //Cuts out the substring and checks to see if it is empty or not before adding
-                    subStringToAdd = line.Substring(startingIndex, stringLength);
-                    if (!String.IsNullOrWhiteSpace(subStringToAdd) && !String.IsNullOrEmpty(subStringToAdd))
+                    //Checks if the string is null of empty before adding
+                    if (!String.IsNullOrEmpty(subStringToAdd) && !String.IsNullOrWhiteSpace(subStringToAdd))
                     {
                         tokenizedLine.Add(subStringToAdd);
-                    }//End If
-
-                    //Used to add punctuation marks and delete empty spaces between words
-                    subStringToAdd = line.Substring(endingIndex, 1);
-                    if (!String.IsNullOrWhiteSpace(subStringToAdd) && !String.IsNullOrEmpty(subStringToAdd))
+                    }
+                    else if (subStringToAdd == "\r" || subStringToAdd == "\n")  //If it is a carraige return or newline add it
                     {
-                        if (subStringToAdd == "\\")
-                        {
-                            //If what it found was an escape character add the next character
-                            tokenizedLine.Add(subStringToAdd + line.Substring(endingIndex + 1, 1)); 
-
-                            //Remove the characters associated with the newline, return, and tab characters
-                            line = line.Remove(endingIndex + 1, 1);
-                        }
-                        else
+                        tokenizedLine.Add(subStringToAdd);
+                        subStringToAdd = work.Substring(endingIndex, 1);
+                        while (subStringToAdd == "\r" || subStringToAdd == "\n")    //keep adding these until there are no more newline or carraige returns in the sequence
                         {
                             tokenizedLine.Add(subStringToAdd);
-                        }
+                            endingIndex += 1;
+                            subStringToAdd = work.Substring(endingIndex, 1);
+                        }//End while
+                    }//End if
+
+                    subStringToAdd = work.Substring(endingIndex, 1);
+
+                    //Again checks if the string is null or empty and removes it if it's a space
+                    if (!String.IsNullOrEmpty(subStringToAdd) && !String.IsNullOrWhiteSpace(subStringToAdd))
+                    {
+                        tokenizedLine.Add(subStringToAdd);
+                        work = work.Substring(endingIndex + 1);
+                    }
+                    else if (subStringToAdd == "\r" || subStringToAdd == "\n")
+                    {
+                        while (subStringToAdd == "\r" || subStringToAdd == "\n")
+                        {
+                            tokenizedLine.Add(subStringToAdd);
+                            endingIndex += 1;
+                            subStringToAdd = work.Substring(endingIndex, 1);
+                        }//End While
+                        work = work.Substring(endingIndex);
+                    }
+                    else
+                    {
+                        work = work.Substring(endingIndex + 1);
                     }//End If
 
-                    startingIndex = endingIndex + 1;
-                }//End if
-                else            //Adds the final string of the original string to the list of tokens
+                }//End If
+                else
                 {
-                    int length = line.Length - startingIndex;
-                    tokenizedLine.Add(line.Substring(startingIndex, length));
-                }//End if
-
+                    tokenizedLine.Add(work);
+                    work = "";
+                }
             }//End While
+
+            tokenizedLine = CarraigeReturnToNewline(tokenizedLine);
+
             return tokenizedLine;
         }//End Tokenize
+
+        /// <summary>
+        /// Replaces the carraige returns in a list with a single newline character
+        /// </summary>
+        /// <param name="tokens">The list to check</param>
+        /// <returns>The list with the carraige returns replaced</returns>
+        private static List<string> CarraigeReturnToNewline(List<string> tokens)
+        {
+            int startIndex = 0, endIndex = 0;
+            bool clean = true;
+
+            //Loops through the list of strings and finds the first occurence of a newline or carraige return
+            //It then finds the last one in that sequence and replaces that group with a single newline.
+            //It continues to do this until all multiple occurences have been replace with a single newline
+            while (clean)
+            {
+                for (int i = startIndex + 1; i < tokens.Count; i++)
+                {
+                    if (tokens[i] == "\r" || tokens[i] == "\n")
+                    {
+                        startIndex = i;
+                        for (int c = i; c < tokens.Count; c++)
+                        {
+                            if (tokens[c] != "\n" && tokens[c] != "\r")
+                            {
+                                endIndex = c;
+                                tokens = Replace(tokens, startIndex, endIndex - startIndex, "\n");
+                                break;
+                            }//end if
+                        }//end for
+                        clean = true;
+                        break;
+                    }
+                    else
+                    {
+                        clean = false;
+                    }//end if
+                }//end for
+
+
+            }//End while
+            return tokens;
+        }//end CarraigeReturnToNewline
+
+        /// <summary>
+        /// Replaces a specified range in a list with the given string
+        /// </summary>
+        /// <param name="listToReplace">List that will have a range replaced</param>
+        /// <param name="startIndex">Starting index for the range</param>
+        /// <param name="rangeToReplace">The range of values to remove</param>
+        /// <param name="toInsert">The string to be inserted into that range</param>
+        /// <returns>The list with the range replaced</returns>
+        private static List<string> Replace(List<string> listToReplace, int startIndex, int rangeToReplace, string toInsert)
+        {
+            listToReplace.RemoveRange(startIndex, rangeToReplace);
+            listToReplace.Insert(startIndex, toInsert);
+            return listToReplace;
+        }// end Replace
     }
 }
